@@ -93,10 +93,19 @@
 <body class="bg-white text-gray-800 overflow-x-hidden">
 
 <!-- TOP BAR -->
-<div class="bg-yellow-700 text-white text-xs sm:text-sm py-2 px-4 text-center font-body font-semibold tracking-wide">
-  <span class="block sm:inline">Serving Worcester and Central Massachusetts</span>
-  <span class="hidden sm:inline">&nbsp;&mdash;&nbsp;</span>
-  <span class="block sm:inline font-bold mt-1 sm:mt-0">Emergency Services Available</span>
+<div class="bg-yellow-700 text-white text-xs sm:text-sm py-2 px-2 sm:px-4 text-center font-body font-semibold tracking-wide w-full">
+  <!-- Desktop / Tablet View -->
+  <div class="hidden sm:block">
+    <span class="inline">Serving Worcester and Central Massachusetts</span>
+    <span class="inline">&nbsp;&mdash;&nbsp;</span>
+    <span class="inline font-bold">Emergency Services Available</span>
+  </div>
+  <!-- Mobile Quick Links -->
+  <div class="flex sm:hidden items-center justify-center gap-3 divide-x divide-white/40 text-[11px] sm:text-xs">
+    <a href="#services" class="hover:text-yellow-200 px-1 py-1">Residential</a>
+    <a href="#commercial" class="hover:text-yellow-200 pl-3 py-1">Commercial</a>
+    <a href="#bedbugs" class="hover:text-yellow-200 pl-3 py-1">Bed Bugs</a>
+  </div>
 </div>
 
 <!-- NAVBAR -->
@@ -111,7 +120,7 @@
         <a href="#home"       class="hover:text-yellow-400 transition-colors">Home</a>
         <a href="#about"      class="hover:text-yellow-400 transition-colors">About</a>
         <a href="#commercial" class="hover:text-yellow-400 transition-colors">Commercial</a>
-        <a href="#services"   class="hover:text-yellow-400 transition-colors">Services</a>
+        <a href="#services"   class="hover:text-yellow-400 transition-colors">Residential</a>
         <a href="#bedbugs"    class="hover:text-yellow-400 transition-colors">Bed Bugs</a>
         <a href="#why-us"     class="hover:text-yellow-400 transition-colors">Why Us</a>
         <a href="#seasonal"   class="hover:text-yellow-400 transition-colors">Seasonal</a>
@@ -129,7 +138,7 @@
       <a href="#home"       class="hover:text-yellow-400" onclick="closeMobile()">Home</a>
       <a href="#about"      class="hover:text-yellow-400" onclick="closeMobile()">About</a>
       <a href="#commercial" class="hover:text-yellow-400" onclick="closeMobile()">Commercial</a>
-      <a href="#services"   class="hover:text-yellow-400" onclick="closeMobile()">Services</a>
+      <a href="#services"   class="hover:text-yellow-400" onclick="closeMobile()">Residential</a>
       <a href="#bedbugs"    class="hover:text-yellow-400" onclick="closeMobile()">Bed Bugs</a>
       <a href="#why-us"     class="hover:text-yellow-400" onclick="closeMobile()">Why Us</a>
       <a href="#seasonal"   class="hover:text-yellow-400" onclick="closeMobile()">Seasonal</a>
