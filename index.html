@@ -3,14 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pest Control Worcester MA | Bed Bug Treatment | Pest Services MA | PestControlMA.com</title>
+  <title>Pest Control Worcester MA | Pest Services MA</title>
   <meta name="description" content="Professional pest control in Worcester MA. Licensed exterminators serving Shrewsbury, Westborough, Marlborough, Auburn, Holden. Bed bug steam treatment, rodent control, cockroach elimination. Call Pest Services MA today." />
   <meta name="keywords" content="pest control Worcester MA, bed bug treatment Worcester, exterminator Worcester MA, rodent control Central Massachusetts, cockroach elimination Worcester, tick mosquito control Worcester County, pest control Shrewsbury MA, pest control Westborough MA, bed bug steam treatment Worcester, commercial pest control Worcester MA" />
   <meta property="og:title" content="Pest Control Worcester MA | Pest Services MA" />
   <meta property="og:description" content="Worcester's most trusted pest control and bed bug elimination experts. Locally operated, licensed, serving all of Central Massachusetts." />
-  <meta property="og:url" content="https://www.pestcontrolma.com" />
+  <meta property="og:url" content="https://www.pestservicesma.com/" />
   <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://www.pestcontrolma.com" />
+  <meta property="og:image" content="https://www.pestservicesma.com/images/banner.webp" />
+  <meta property="og:site_name" content="Pest Services MA" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pest Control Worcester MA | Pest Services MA" />
+  <meta name="twitter:description" content="Worcester's most trusted pest control and bed bug elimination experts. Locally operated, licensed, serving all of Central Massachusetts." />
+  <meta name="twitter:image" content="https://www.pestservicesma.com/images/banner.webp" />
+  <link rel="canonical" href="https://www.pestservicesma.com/" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -20,8 +30,9 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Pest Services MA",
-    "url": "https://www.pestcontrolma.com",
+    "url": "https://www.pestservicesma.com/",
     "email": "worcesterpestcontrol@gmail.com",
+    "image": "https://www.pestservicesma.com/images/banner.webp",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Worcester",
@@ -30,7 +41,8 @@
     },
     "areaServed": "Worcester County, MA",
     "description": "Professional pest control and bed bug elimination services in Worcester, MA.",
-    "serviceType": ["Pest Control","Bed Bug Treatment","Rodent Control","Commercial Pest Management"]
+    "serviceType": ["Pest Control","Bed Bug Treatment","Rodent Control","Commercial Pest Management"],
+    "priceRange": "$$"
   }
   </script>
 
@@ -930,19 +942,55 @@
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
   // Form validation
-  function submitForm() {
-    const name  = document.getElementById('f-name').value.trim();
-    const phone = document.getElementById('f-phone').value.trim();
-    const email = document.getElementById('f-email').value.trim();
-    const err   = document.getElementById('form-error');
-    const suc   = document.getElementById('form-success');
+  async function submitForm() {
+    const name    = document.getElementById('f-name').value.trim();
+    const phone   = document.getElementById('f-phone').value.trim();
+    const email   = document.getElementById('f-email').value.trim();
+    const service = document.getElementById('f-service').value.trim();
+    const message = document.getElementById('f-message').value.trim();
+    
+    const err = document.getElementById('form-error');
+    const suc = document.getElementById('form-success');
+    const btn = document.querySelector('button[onclick="submitForm()"]');
+    
     err.classList.add('hidden');
     suc.classList.add('hidden');
-    if (!name)                   { err.textContent='Please enter your full name.'; err.classList.remove('hidden'); return; }
-    if (!phone)                  { err.textContent='Please enter your phone number.'; err.classList.remove('hidden'); return; }
-    if (!email||!email.includes('@')) { err.textContent='Please enter a valid email address.'; err.classList.remove('hidden'); return; }
-    suc.classList.remove('hidden');
-    ['f-name','f-phone','f-email','f-message','f-service'].forEach(id => { const el=document.getElementById(id); if(el) el.value=''; });
+    
+    if (!name) { err.textContent='Please enter your full name.'; err.classList.remove('hidden'); return; }
+    if (!phone) { err.textContent='Please enter your phone number.'; err.classList.remove('hidden'); return; }
+    if (!email || !email.includes('@')) { err.textContent='Please enter a valid email address.'; err.classList.remove('hidden'); return; }
+    
+    if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>Sending...'; }
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          access_key: "8c4de8be-9cd3-4415-9bd9-f300420548d1",
+          name: name,
+          phone: phone,
+          email: email,
+          service: service,
+          message: message,
+          subject: "New Free Inspection Request from Pest Services MA"
+        })
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        suc.classList.remove('hidden');
+        ['f-name','f-phone','f-email','f-message','f-service'].forEach(id => { const el=document.getElementById(id); if(el) el.value=''; });
+      } else {
+        err.textContent = result.message || 'Something went wrong. Please try again.';
+        err.classList.remove('hidden');
+      }
+    } catch (error) {
+      err.textContent = 'Network error. Please try again.';
+      err.classList.remove('hidden');
+    } finally {
+      if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-paper-plane mr-2"></i>Book Your Free Inspection Now'; }
+    }
   }
 </script>
 </body>
