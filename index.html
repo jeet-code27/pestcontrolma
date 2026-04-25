@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,13 +18,8 @@
   <meta name="twitter:description" content="Worcester's most trusted pest control and bed bug elimination experts. Locally operated, licensed, serving all of Central Massachusetts." />
   <meta name="twitter:image" content="https://www.pestservicesma.com/images/banner.webp" />
   <link rel="canonical" href="https://www.pestservicesma.com/" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
-
+  <link rel="icon" type="image/png" href="/images/pest-services-logo.png" />
+  
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,957 +41,811 @@
   }
   </script>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            pine: { DEFAULT: '#1a4731', light: '#22603f', dark: '#122f21', faint: '#f0f7f3' },
-            gold: { DEFAULT: '#d97706', dark: '#b45309', light: '#fef3c7' }
-          },
-          fontFamily: {
-            display: ['"Playfair Display"','Georgia','serif'],
-            body: ['"Source Sans 3"','sans-serif']
-          }
-        }
-      }
-    }
-  </script>
-
+  <!-- Performance: Preconnect + Preload -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preload" as="image" href="/images/banner.webp" fetchpriority="high">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Source Sans 3', sans-serif; }
-    h1,h2,h3,h4 { font-family: 'Playfair Display', Georgia, serif; }
-
-    .fade-in { opacity:0; transform:translateY(28px); transition:opacity 0.7s ease,transform 0.7s ease; }
-    .fade-in.visible { opacity:1; transform:translateY(0); }
-
-    .hero-bg { background:linear-gradient(135deg,rgba(18,47,33,0.94) 0%,rgba(26,71,49,0.82) 100%); }
-    .nav-scrolled { box-shadow:0 2px 24px rgba(0,0,0,0.3); }
-    .card-top-green { border-top:4px solid #1a4731; }
-    .card-top-gold { border-top:4px solid #d97706; }
-    .comm-left { border-left:5px solid #d97706; }
-
-    .step-num { font-family:'Playfair Display',serif; font-size:3.5rem; line-height:1; color:#d97706; opacity:0.2; font-weight:800; }
-
-    #mobile-menu { display:none; }
-    #mobile-menu.open { display:block; }
-
-    #back-to-top { display:none; }
-    #back-to-top.show { display:flex; }
-
-    .plan-card { transition:transform 0.3s ease,box-shadow 0.3s ease; }
-    .plan-card:hover { transform:translateY(-5px); box-shadow:0 20px 40px rgba(0,0,0,0.12); }
-
-    .btn-gold { background:#d97706; color:#fff; transition:background 0.2s,transform 0.2s; }
-    .btn-gold:hover { background:#b45309; transform:translateY(-1px); }
-
-    .btn-pine { background:#1a4731; color:#fff; transition:background 0.2s; }
-    .btn-pine:hover { background:#122f21; }
-
-    .btn-outline { border:2px solid #fff; color:#fff; transition:background 0.2s; }
-    .btn-outline:hover { background:rgba(255,255,255,0.15); }
-
-    ::-webkit-scrollbar { width:6px; }
-    ::-webkit-scrollbar-track { background:#f0f7f3; }
-    ::-webkit-scrollbar-thumb { background:#1a4731; border-radius:3px; }
+    body.modal-open {
+      overflow: hidden;
+    }
   </style>
 </head>
-<body class="bg-white text-gray-800 overflow-x-hidden">
+<body class="min-h-screen bg-white text-gray-900 font-sans">
 
-<!-- TOP BAR -->
-<div class="bg-yellow-700 text-white text-xs sm:text-sm py-2 px-2 sm:px-4 text-center font-body font-semibold tracking-wide w-full">
-  <!-- Desktop / Tablet View -->
-  <div class="hidden sm:block">
-    <span class="inline">Serving Worcester and Central Massachusetts</span>
-    <span class="inline">&nbsp;&mdash;&nbsp;</span>
-    <span class="inline font-bold">Emergency Services Available</span>
-  </div>
-  <!-- Mobile Quick Links -->
-  <div class="flex sm:hidden items-center justify-center gap-3 divide-x divide-white/40 text-[11px] sm:text-xs">
-    <a href="#services" class="hover:text-yellow-200 px-1 py-1">Residential</a>
-    <a href="#commercial" class="hover:text-yellow-200 pl-3 py-1">Commercial</a>
-    <a href="#bedbugs" class="hover:text-yellow-200 pl-3 py-1">Bed Bugs</a>
-  </div>
-</div>
-
-<!-- NAVBAR -->
-<nav id="navbar" class="sticky top-0 z-50 bg-pine transition-all duration-300">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between py-3 sm:py-4">
-      <a href="#home" class="flex items-center gap-2">
-        <img src="/images/pest-services-logo.png" alt="Pest Services MA" class="h-16 sm:h-20 w-auto">
-      </a>
-      <div class="hidden lg:flex items-center gap-4 xl:gap-6 text-sm font-body font-semibold text-gray-200">
-        <a href="#home"       class="hover:text-yellow-400 transition-colors">Home</a>
-        <a href="#about"      class="hover:text-yellow-400 transition-colors">About</a>
-        <a href="#commercial" class="hover:text-yellow-400 transition-colors">Commercial</a>
-        <a href="#services"   class="hover:text-yellow-400 transition-colors">Residential</a>
-        <a href="#bedbugs"    class="hover:text-yellow-400 transition-colors">Bed Bugs</a>
-        <a href="#why-us"     class="hover:text-yellow-400 transition-colors">Why Us</a>
-        <a href="#seasonal"   class="hover:text-yellow-400 transition-colors">Seasonal</a>
-        <a href="#contact" class="btn-gold px-5 py-2 rounded-full font-bold ml-1">
-          <i class="fa-solid fa-envelope mr-1"></i>Contact
-        </a>
+  <div class="sticky top-0 z-50 flex flex-col w-full shadow-sm">
+    <!-- Top Bar -->
+    <div class="bg-green-800 text-white text-xs sm:text-sm py-2 px-2 sm:px-4 text-center font-semibold tracking-wide w-full">
+      <div class="hidden sm:block">
+        <span class="inline">Serving Worcester and Central Massachusetts</span>
+        <span class="inline">&nbsp;&mdash;&nbsp;</span>
+        <span class="inline font-bold">Emergency Services Available</span>
       </div>
-      <button id="hamburger" class="lg:hidden text-white text-2xl focus:outline-none">
-        <i class="fa-solid fa-bars" id="ham-icon"></i>
-      </button>
-    </div>
-  </div>
-  <div id="mobile-menu" class="lg:hidden bg-pine border-t border-green-900">
-    <div class="px-4 pt-3 pb-5 flex flex-col gap-3 text-gray-200 font-body font-semibold text-sm">
-      <a href="#home"       class="hover:text-yellow-400" onclick="closeMobile()">Home</a>
-      <a href="#about"      class="hover:text-yellow-400" onclick="closeMobile()">About</a>
-      <a href="#commercial" class="hover:text-yellow-400" onclick="closeMobile()">Commercial</a>
-      <a href="#services"   class="hover:text-yellow-400" onclick="closeMobile()">Residential</a>
-      <a href="#bedbugs"    class="hover:text-yellow-400" onclick="closeMobile()">Bed Bugs</a>
-      <a href="#why-us"     class="hover:text-yellow-400" onclick="closeMobile()">Why Us</a>
-      <a href="#seasonal"   class="hover:text-yellow-400" onclick="closeMobile()">Seasonal</a>
-      <a href="#contact" class="btn-gold text-center px-4 py-2 rounded-full mt-2">
-        <i class="fa-solid fa-envelope mr-1"></i>Contact Us
-      </a>
-    </div>
-  </div>
-</nav>
-
-<!-- ============================================================
-     SECTION 1: HERO
-============================================================ -->
-<section id="home" class="relative min-h-screen flex items-center">
-  <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-       style="background-image:url('/images/banner.webp');"></div>
-  <div class="hero-bg absolute inset-0"></div>
-
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
-    <div class="max-w-3xl fade-in">
-      <span class="inline-block bg-yellow-600 text-white text-xs font-body font-bold uppercase tracking-widest px-4 py-1 rounded-full mb-6">
-        Worcester, MA &bull; Licensed &amp; Certified
-      </span>
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display text-white leading-tight mb-5">
-        Worcester's Most Trusted Pest Control and Bed Bug Elimination Experts
-      </h1>
-      <p class="text-lg text-yellow-300 font-body font-semibold mb-4">
-        Professional Pest Control Services in Central Massachusetts, Serving Worcester, Shrewsbury, Westborough, Marlborough, Northborough, Auburn, Holden, Southborough, Leominster, Fitchburg, and Beyond.
-      </p>
-      <p class="text-base text-gray-200 font-body leading-relaxed mb-8">
-        Pest Services MA provides bed bug, rodent, cockroach, ants, ticks, mosquitoes, etc. services. If you need residential and commercial pest control service throughout Worcester County with fast, effective and environmentally responsible pest control solutions, contact us for a free inspection.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 mb-10 w-full sm:w-auto">
-        <a href="#contact" class="btn-gold font-body font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base w-full sm:w-auto text-center border-2 border-transparent">
-          <i class="fa-solid fa-calendar-check mr-2"></i>Schedule Your Free Inspection
-        </a>
-        <a href="mailto:worcesterpestcontrol@gmail.com" class="btn-outline font-body font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base w-full sm:w-auto text-center">
-          <i class="fa-solid fa-envelope mr-2"></i>Email Us
-        </a>
-      </div>
-      <div class="flex flex-wrap gap-x-6 gap-y-2 text-gray-300 font-body text-sm">
-        <span><i class="fa-solid fa-certificate text-yellow-400 mr-1"></i>Licensed &amp; Certified</span>
-        <span><i class="fa-solid fa-shield-halved text-yellow-400 mr-1"></i>Satisfaction Guaranteed</span>
-        <span><i class="fa-solid fa-bolt text-yellow-400 mr-1"></i>Emergency Service</span>
+      <div class="flex sm:hidden items-center justify-center gap-3 divide-x divide-white/40 text-[11px] sm:text-xs">
+        <a href="#commercial" class="hover:text-green-200 px-1 py-1">Commercial</a>
+        <a href="#services" class="hover:text-green-200 pl-3 py-1">Residential</a>
+        <a href="#bedbugs" class="hover:text-green-200 pl-3 py-1">Bed Bugs</a>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ============================================================
-     SECTION 2: ABOUT US
-============================================================ -->
-<section id="about" class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid md:grid-cols-2 gap-12 items-start">
+    <!-- Header -->
+    <header class="bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex justify-between items-center">
+          <a href="#home" class="flex items-center gap-2">
+            <img src="/images/pest-services-logo.png" alt="Pest Services MA Logo" class="h-16 sm:h-20 w-auto" />
+          </a>
+          <div class="hidden lg:flex items-center gap-6">
+            <a href="#about" class="font-bold text-gray-700 hover:text-green-600 transition-colors">About</a>
+            <a href="#commercial" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Commercial</a>
+            <a href="#services" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Residential</a>
+            <a href="#bedbugs" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Bed Bugs</a>
+            <a href="#why-us" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Why Us</a>
+            <button onclick="scrollToForm()"
+              class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
+              FREE Inspection
+            </button>
+          </div>
 
-      <div class="fade-in">
-        <span class="text-yellow-700 font-body font-bold uppercase tracking-widest text-xs">Who We Are</span>
-        <h2 class="font-display text-3xl sm:text-4xl text-pine mt-2 mb-6 leading-tight">
-          About Pest Services MA — Worcester's Local Pest Control Specialists
-        </h2>
-        <div class="space-y-4 font-body text-gray-700 text-base leading-relaxed">
-          <p>Our office is located locally. We understand the specific pest pressures, housing types, and seasonal patterns unique to the Worcester area.</p>
-          <p>The network of professional pest control technicians dispatched to your property is trained in the latest integrated pest management techniques. Advanced treatment methods are used with a strong focus on prevention, safety, and customer education. Every job is handled with care and attention.</p>
-          <p>When you call Pest Services MA, you get a real local expert — not a call center. We respond quickly, inspect thoroughly, and treat effectively. Our goal is not just to eliminate the pest problem you have today, but to make sure it does not come back tomorrow.</p>
+          <!-- Mobile Nav Hamburger -->
+          <div class="lg:hidden flex items-center">
+            <button id="mobile-menu-btn" class="text-gray-700 hover:text-green-600 focus:outline-none p-2">
+              <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
+          </div>
         </div>
       </div>
 
-      <div class="fade-in">
-        <div class="bg-pine rounded-2xl p-8 text-white">
-          <div class="flex items-center gap-3 mb-5">
-            <i class="fa-solid fa-map-location-dot text-yellow-400 text-3xl"></i>
-            <h3 class="font-display text-2xl">Our Service Areas</h3>
+      <!-- Mobile Menu Dropdown -->
+      <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full left-0">
+        <div class="px-4 py-3 flex flex-col space-y-3">
+          <a href="#commercial" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Commercial</a>
+          <a href="#about" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">About</a>
+          <a href="#services" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Residential</a>
+          <a href="#bedbugs" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Bed Bugs</a>
+          <a href="#why-us" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Why Us</a>
+          <button onclick="scrollToForm(); document.getElementById('mobile-menu').classList.add('hidden');"
+            class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors mt-2 text-center">
+            FREE Inspection
+          </button>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const btn = document.getElementById("mobile-menu-btn");
+      const menu = document.getElementById("mobile-menu");
+      if (btn && menu) {
+        btn.addEventListener("click", function () {
+          menu.classList.toggle("hidden");
+        });
+      }
+
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.add('hidden');
+        });
+      });
+    });
+  </script>
+
+  <!-- 1. Hero Section -->
+  <section id="home" class="relative bg-gradient-to-br from-green-50 to-green-100 py-16 md:py-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="inline-block bg-green-200 text-green-800 text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full mb-6">
+            Worcester, MA &bull; Licensed &amp; Certified
+          </span>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+            Worcester's Most Trusted Pest Control and Bed Bug Elimination Experts
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-700 mb-6 font-medium">
+            Professional Pest Control Services in Central Massachusetts, Serving Worcester, Shrewsbury, Westborough, Marlborough, Northborough, Auburn, Holden, Southborough, Leominster, Fitchburg, and Beyond.
+          </p>
+          <p class="text-base text-gray-600 leading-relaxed mb-8">
+            Pest Services MA provides bed bug, rodent, cockroach, ants, ticks, mosquitoes, etc. services. If you need residential and commercial pest control service throughout Worcester County with fast, effective and environmentally responsible pest control solutions, contact us for a free inspection.
+          </p>
+
+          <div class="flex flex-col gap-4 mb-8">
+            <div class="flex items-center gap-3 bg-white/60 p-3 rounded-xl shadow-sm backdrop-blur-sm border border-white">
+              <i data-lucide="check-circle" class="w-6 h-6 text-green-600 flex-shrink-0"></i>
+              <span class="text-gray-800 font-semibold text-lg">Licensed &amp; Certified</span>
+            </div>
+            <div class="flex items-center gap-3 bg-white/60 p-3 rounded-xl shadow-sm backdrop-blur-sm border border-white">
+              <i data-lucide="check-circle" class="w-6 h-6 text-green-600 flex-shrink-0"></i>
+              <span class="text-gray-800 font-semibold text-lg">Satisfaction Guaranteed</span>
+            </div>
+            <div class="flex items-center gap-3 bg-white/60 p-3 rounded-xl shadow-sm backdrop-blur-sm border border-white">
+              <i data-lucide="check-circle" class="w-6 h-6 text-green-600 flex-shrink-0"></i>
+              <span class="text-gray-800 font-semibold text-lg">Emergency Service</span>
+            </div>
           </div>
-          <p class="font-body text-gray-200 text-base leading-relaxed mb-5">
-            We proudly serve: Worcester, Shrewsbury, Westborough, Northborough, Southborough, Marlborough, Grafton, Millbury, Auburn, Leicester, Holden, West Boylston, Boylston, Clinton, Berlin, Northbridge, Uxbridge, Oxford, Charlton, Paxton, Rutland, Spencer, and surrounding communities throughout Central Massachusetts.
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-8">
+            <button onclick="scrollToForm()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg transition-colors text-lg shadow-xl text-center">
+              Schedule Your Free Inspection
+            </button>
+            <a href="mailto:worcesterpestcontrol@gmail.com" class="bg-white border-2 border-green-600 hover:bg-green-50 text-green-600 font-bold py-4 px-8 rounded-lg transition-colors text-lg shadow-xl text-center">
+              Email Us
+            </a>
+          </div>
+        </div>
+        <div class="relative group mt-8 lg:mt-0">
+          <div class="absolute inset-0 bg-green-600/10 rounded-2xl transform rotate-3 group-hover:rotate-6 transition-transform duration-300 -z-10"></div>
+          <img src="/images/banner.webp" alt="Professional Pest Control Services" class="rounded-2xl shadow-2xl w-full h-auto md:h-[500px] object-cover border-4 border-white" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. About Us -->
+  <section id="about" class="py-20 bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-green-700 font-bold uppercase tracking-widest text-xs mb-2 block">Who We Are</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            About Pest Services MA — Worcester's Local Pest Control Specialists
+          </h2>
+          <div class="text-lg text-gray-700 mb-8 space-y-4">
+            <p>Our office is located locally. We understand the specific pest pressures, housing types, and seasonal patterns unique to the Worcester area.</p>
+            <p>The network of professional pest control technicians dispatched to your property is trained in the latest integrated pest management techniques. Advanced treatment methods are used with a strong focus on prevention, safety, and customer education. Every job is handled with care and attention.</p>
+            <p>When you call Pest Services MA, you get a real local expert — not a call center. We respond quickly, inspect thoroughly, and treat effectively. Our goal is not just to eliminate the pest problem you have today, but to make sure it does not come back tomorrow.</p>
+          </div>
+          
+          <button onclick="scrollToForm()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg transition-colors text-lg w-full md:w-auto shadow-xl text-center">
+            Check If We Serve Your Area
+          </button>
+        </div>
+        <div>
+          <div class="bg-green-50 p-8 rounded-2xl border border-green-100 shadow-sm">
+            <div class="flex items-center gap-3 mb-5">
+              <i data-lucide="map-pin" class="w-8 h-8 text-green-600"></i>
+              <h3 class="font-bold text-gray-900 text-2xl">Our Service Areas</h3>
+            </div>
+            <p class="text-gray-700 text-base leading-relaxed mb-4">
+              We proudly serve: Worcester, Shrewsbury, Westborough, Northborough, Southborough, Marlborough, Grafton, Millbury, Auburn, Leicester, Holden, West Boylston, Boylston, Clinton, Berlin, Northbridge, Uxbridge, Oxford, Charlton, Paxton, Rutland, Spencer, and surrounding communities throughout Central Massachusetts.
+            </p>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+              As the second-largest city in New England, Worcester sits at the heart of Central Massachusetts and faces some of the region's most demanding pest pressures. Dense residential neighborhoods, historic multi-family buildings, active restaurant districts, college campuses, and constant movement of people and goods all create ideal conditions for pest activity to spread quickly when left untreated.
+            </p>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+              Suburban towns like Shrewsbury, Westborough, and Northborough face their own unique challenges, with pests frequently entering residential properties from adjacent wooded areas and agricultural land. Communities like Auburn, Leicester, and Millbury deal with seasonal rodent invasions and ant problems driven by the region's cold winters and humid summers.
+            </p>
+            <p class="text-gray-900 font-bold text-sm leading-relaxed">
+              No matter where you are in Worcester County, Pest Services MA has the local knowledge and professional expertise to protect your property.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Residential Services -->
+  <section id="services" class="py-16 bg-gray-50 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-green-700 font-bold uppercase tracking-widest text-xs mb-2 block">Residential Services</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Comprehensive Residential Pest Control in Worcester, MA</h2>
+        <p class="text-xl text-gray-600">Protecting Worcester Homes From Every Pest Threat</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rodent -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all">
+          <div class="flex items-start gap-4">
+            <div class="bg-green-50 p-3 rounded-full flex-shrink-0"><i data-lucide="home" class="w-6 h-6 text-green-600"></i></div>
+            <div>
+              <h4 class="font-bold text-gray-900 text-lg mb-1">Rodent Control</h4>
+              <p class="text-green-700 text-sm font-semibold mb-3">Mice and Rat Extermination in Worcester</p>
+              <p class="text-gray-600 text-sm mb-2">Mice and rats are among the most common pest problems reported across Worcester, Shrewsbury, Holden, and the surrounding towns. They pose serious health risks by carrying diseases like hantavirus and salmonella, and cause property damage by gnawing on wiring and insulation.</p>
+              <p class="text-gray-600 text-sm">Our rodent control program includes property inspection, strategic trap placement, exclusion work to permanently seal entry points, and ongoing monitoring to confirm complete elimination.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ants -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all">
+          <div class="flex items-start gap-4">
+            <div class="bg-green-50 p-3 rounded-full flex-shrink-0"><i data-lucide="bug" class="w-6 h-6 text-green-600"></i></div>
+            <div>
+              <h4 class="font-bold text-gray-900 text-lg mb-1">Ant Extermination</h4>
+              <p class="text-green-700 text-sm font-semibold mb-3">Worcester, Westborough, Marlborough</p>
+              <p class="text-gray-600 text-sm mb-2">Ant infestations, especially carpenter ants, are frequent calls. They excavate tunnels through wood structures and potentially compromise the integrity of your home over time. Odorous house ants and pavement ants contaminate food supplies.</p>
+              <p class="text-gray-600 text-sm">Our treatment program uses professional baiting systems, residual perimeter treatments, and exterior barrier applications to prevent new colonies from establishing.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cockroach -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all">
+          <div class="flex items-start gap-4">
+            <div class="bg-green-50 p-3 rounded-full flex-shrink-0"><i data-lucide="ban" class="w-6 h-6 text-green-600"></i></div>
+            <div>
+              <h4 class="font-bold text-gray-900 text-lg mb-1">Cockroach Elimination</h4>
+              <p class="text-green-700 text-sm font-semibold mb-3">Worcester and Central Massachusetts</p>
+              <p class="text-gray-600 text-sm mb-2">German cockroaches thrive in kitchens, bathrooms, and utility areas. American and Oriental cockroaches are frequently found in basements and drains. They spread bacteria, trigger allergies, and reproduce fast.</p>
+              <p class="text-gray-600 text-sm">Our elimination program combines professional-grade gel baits, insect growth regulators, crack and crevice treatments, and thorough follow-up inspections.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tick / Mosquito -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all">
+          <div class="flex items-start gap-4">
+            <div class="bg-green-50 p-3 rounded-full flex-shrink-0"><i data-lucide="leaf" class="w-6 h-6 text-green-600"></i></div>
+            <div>
+              <h4 class="font-bold text-gray-900 text-lg mb-1">Tick and Mosquito Control</h4>
+              <p class="text-green-700 text-sm font-semibold mb-3">Worcester County Outdoor Pest Management</p>
+              <p class="text-gray-600 text-sm mb-2">The parks and residential backyards provide ideal habitat for ticks and mosquitoes, carrying diseases like Lyme disease and West Nile virus. This is a growing concern for families in towns like Holden and Northborough.</p>
+              <p class="text-gray-600 text-sm">Our outdoor pest management program uses targeted vegetation treatments and breeding site reduction to significantly reduce populations around your yard.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wasp / Bee -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all">
+          <div class="flex items-start gap-4">
+            <div class="bg-green-50 p-3 rounded-full flex-shrink-0"><i data-lucide="alert-triangle" class="w-6 h-6 text-green-600"></i></div>
+            <div>
+              <h4 class="font-bold text-gray-900 text-lg mb-1">Wasp, Hornet, and Bee Removal</h4>
+              <p class="text-green-700 text-sm font-semibold mb-3">Worcester Area</p>
+              <p class="text-gray-600 text-sm mb-2">Yellow jackets, hornets, paper wasps, and bees establish nests under eaves, in wall voids, underground, and in attic spaces. These colonies become aggressive and pose severe risks to individuals with sting allergies.</p>
+              <p class="text-gray-600 text-sm">Our technicians safely remove all nests using proper protective equipment and professional-grade treatments, and apply preventive treatments for the season.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Bed Bug Services -->
+  <section id="bedbugs" class="py-20 bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="text-green-400 font-bold uppercase tracking-widest text-xs mb-2 block">Bed Bug Specialists</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Professional Bed Bug Treatment in Worcester, MA</h2>
+        <p class="text-xl text-gray-400 mb-6">Complete Bed Bug Elimination for Worcester Homes, Apartments, and Multi-Family Properties</p>
+        <p class="text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          Bed bugs have become a widespread and increasingly common problem in Worcester and throughout Central Massachusetts. These parasitic insects affect homes, apartments, dormitories, hotels, and rental properties regardless of cleanliness. They spread easily through infested furniture, luggage, clothing, and shared walls in multi-unit buildings — and their populations grow rapidly once established.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="bg-green-900/50 p-3 rounded-full"><i data-lucide="bed-double" class="w-6 h-6 text-green-400"></i></div>
+            <h4 class="text-2xl font-bold text-white">Understanding Bed Bugs</h4>
+          </div>
+          <p class="text-gray-400 leading-relaxed mb-4">Bed bugs are small, flat, reddish-brown insects approximately the size of an apple seed. They feed on human blood at night while people sleep and spend the rest of their time hidden in mattress seams, box spring folds, bed frames, headboards, baseboards, electrical outlets, nightstands, and other tight spaces near sleeping areas.</p>
+          <p class="text-gray-400 leading-relaxed">Signs of a bed bug infestation include small blood spots on sheets, tiny dark fecal spots on mattresses, shed nymph skins, and in heavier infestations, a sweet musty odor. Because reactions vary and bed bugs hide so effectively, infestations often go undetected until populations are well-established.</p>
+        </div>
+
+        <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="bg-green-900/50 p-3 rounded-full"><i data-lucide="search" class="w-6 h-6 text-green-400"></i></div>
+            <h4 class="text-2xl font-bold text-white">Our Treatment Process</h4>
+          </div>
+          <ul class="space-y-3 text-gray-400">
+            <li class="flex items-start gap-3">
+              <div class="mt-1"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-400"></i></div>
+              <span>Detailed inspection of all mattresses, frames, furniture, and void spaces.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="mt-1"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-400"></i></div>
+              <span>Professional-grade residual insecticides applied to cracks, crevices, and harborage areas.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="mt-1"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-400"></i></div>
+              <span>High-temperature steam treatment to kill bugs and eggs on contact without chemicals.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="mt-1"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-400"></i></div>
+              <span>Professional dust formulations for long-term protection in wall voids.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="mt-1"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-400"></i></div>
+              <span>Biological Bed Bug Solution available for Pro-Active situations (3-month residual).</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Prevention Tips -->
+      <div class="bg-green-900/20 border border-green-800 rounded-2xl p-8 mb-10 text-center md:text-left">
+        <h4 class="text-xl font-bold text-white mb-4">Bed Bug Prevention Tips for Worcester Residents</h4>
+        <p class="text-gray-400 leading-relaxed">
+          Inspect sleeping areas regularly for early signs of activity, especially if you travel frequently, purchase used furniture, or live in a multi-unit building. Encase mattresses and box springs in certified bed bug-proof covers. When traveling, inspect hotel rooms before unpacking and keep luggage away from beds and floors. Avoid bringing used furniture or mattresses into your home without thorough inspection. In apartment buildings, seal cracks and gaps around walls and utility penetrations to prevent bed bugs from spreading between units.
+        </p>
+      </div>
+
+      <div class="text-center">
+        <button onclick="scrollToForm()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg transition-colors text-lg shadow-xl inline-flex items-center gap-2">
+          <i data-lucide="calendar" class="w-5 h-5"></i> Schedule Your Bed Bug Inspection Today
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Why Choose Us -->
+  <section id="why-us" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-green-700 font-bold uppercase tracking-widest text-xs mb-2 block">Why Choose Us</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Worcester Homeowners and Businesses Choose Pest Services MA</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="flex flex-col items-center text-center p-8 bg-white border border-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:border-green-200">
+          <div class="bg-green-50 p-4 rounded-full mb-5">
+            <i data-lucide="map-pin" class="w-8 h-8 text-green-600"></i>
+          </div>
+          <h4 class="font-bold text-gray-900 text-xl mb-3">Local Office</h4>
+          <p class="text-gray-600 text-sm">Our office is located locally in Worcester County. We understand the local pest species, housing types, and the neighborhoods where pest pressure is highest.</p>
+        </div>
+        <div class="flex flex-col items-center text-center p-8 bg-white border border-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:border-green-200">
+          <div class="bg-green-50 p-4 rounded-full mb-5">
+            <i data-lucide="award" class="w-8 h-8 text-green-600"></i>
+          </div>
+          <h4 class="font-bold text-gray-900 text-xl mb-3">Licensed & Certified</h4>
+          <p class="text-gray-600 text-sm">The field technicians dispatched to your property are fully licensed by the Commonwealth of Massachusetts and trained in integrated pest management.</p>
+        </div>
+        <div class="flex flex-col items-center text-center p-8 bg-white border border-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:border-green-200">
+          <div class="bg-green-50 p-4 rounded-full mb-5">
+            <i data-lucide="leaf" class="w-8 h-8 text-green-600"></i>
+          </div>
+          <h4 class="font-bold text-gray-900 text-xl mb-3">IPM Approach</h4>
+          <p class="text-gray-600 text-sm">We combine inspection, sanitation guidance, exclusion, and targeted treatments using the least-toxic methods effective for each situation.</p>
+        </div>
+        <div class="flex flex-col items-center text-center p-8 bg-white border border-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:border-green-200">
+          <div class="bg-green-50 p-4 rounded-full mb-5">
+            <i data-lucide="thumbs-up" class="w-8 h-8 text-green-600"></i>
+          </div>
+          <h4 class="font-bold text-gray-900 text-xl mb-3">Satisfaction Guaranteed</h4>
+          <p class="text-gray-600 text-sm">We stand behind every service. If pest activity continues following treatment, we return to re-treat at no additional charge until the problem is resolved.</p>
+        </div>
+        <div class="flex flex-col items-center text-center p-8 bg-white border border-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:border-green-200">
+          <div class="bg-green-50 p-4 rounded-full mb-5">
+            <i data-lucide="shield-check" class="w-8 h-8 text-green-600"></i>
+          </div>
+          <h4 class="font-bold text-gray-900 text-xl mb-3">Safe for Families & Pets</h4>
+          <p class="text-gray-600 text-sm">We select products appropriate for the environment and apply them according to all regulations to protect your household.</p>
+        </div>
+        <div class="flex flex-col items-center text-center p-8 bg-white border border-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:border-green-200">
+          <div class="bg-green-50 p-4 rounded-full mb-5">
+            <i data-lucide="clock" class="w-8 h-8 text-green-600"></i>
+          </div>
+          <h4 class="font-bold text-gray-900 text-xl mb-3">Flexible Scheduling</h4>
+          <p class="text-gray-600 text-sm">We offer appointment windows that work for you. For urgent pest problems, contact us for an urgent free inspection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Seasonal Guide -->
+  <section id="seasonal" class="py-16 bg-gray-50 border-y border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-green-700 font-bold uppercase tracking-widest text-xs mb-2 block">Seasonal Guide</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Worcester Pest Activity by Season — What to Expect and When</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-2xl border-b-4 border-green-500 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+          <div class="text-green-700 font-bold uppercase tracking-widest text-xs mb-3">Spring</div>
+          <div class="bg-green-50 w-12 h-12 rounded-full flex items-center justify-center mb-4"><i data-lucide="flower" class="w-6 h-6 text-green-600"></i></div>
+          <p class="text-gray-600 text-sm leading-relaxed">As temperatures rise, ant colonies emerge. Ticks and mosquitoes become active. Stinging insects construct new nests. Spring is the ideal time for preventive perimeter treatments.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border-b-4 border-green-500 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+          <div class="text-green-700 font-bold uppercase tracking-widest text-xs mb-3">Summer</div>
+          <div class="bg-green-50 w-12 h-12 rounded-full flex items-center justify-center mb-4"><i data-lucide="sun" class="w-6 h-6 text-green-600"></i></div>
+          <p class="text-gray-600 text-sm leading-relaxed">Peak activity for mosquitoes, yellow jackets, and wasps. Flies become problematic around food service areas. Carpenter ants trail through kitchens. Bed bug activity increases.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border-b-4 border-green-500 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+          <div class="text-green-700 font-bold uppercase tracking-widest text-xs mb-3">Fall</div>
+          <div class="bg-green-50 w-12 h-12 rounded-full flex items-center justify-center mb-4"><i data-lucide="leaf" class="w-6 h-6 text-green-600"></i></div>
+          <p class="text-gray-600 text-sm leading-relaxed">As temperatures drop, mice and rats seek warm shelter inside homes and businesses. Overwintering insects attempt to enter through cracks. Critical season for rodent exclusion.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border-b-4 border-green-500 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+          <div class="text-green-700 font-bold uppercase tracking-widest text-xs mb-3">Winter</div>
+          <div class="bg-green-50 w-12 h-12 rounded-full flex items-center justify-center mb-4"><i data-lucide="snowflake" class="w-6 h-6 text-green-600"></i></div>
+          <p class="text-gray-600 text-sm leading-relaxed">Rodents established inside walls remain active, breeding and causing damage. Cockroaches remain active year-round indoors. Winter service visits maintain protective barriers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. IPM Approach -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div>
+          <span class="text-green-700 font-bold uppercase tracking-widest text-xs mb-2 block">Our Method</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Integrated Pest Management Philosophy</h2>
+          <p class="text-lg text-gray-700 mb-8">
+            At Pest Services MA, we believe effective pest control starts with understanding, not just spraying. Our integrated pest management approach follows a structured process that prioritizes long-term results over quick fixes.
           </p>
-          <p class="font-body text-gray-300 text-sm leading-relaxed mb-6">
-            As the second-largest city in New England, Worcester sits at the heart of Central Massachusetts and faces some of the region's most demanding pest pressures. Dense residential neighborhoods, historic multi-family buildings, active restaurant districts, college campuses, and constant movement of people and goods all create ideal conditions for pest activity to spread quickly when left untreated.
-          </p>
-          <p class="font-body text-gray-300 text-sm leading-relaxed mb-8">
-            Suburban towns like Shrewsbury, Westborough, and Northborough face their own unique challenges, with pests frequently entering residential properties from adjacent wooded areas and agricultural land. Communities like Auburn, Leicester, and Millbury deal with seasonal rodent invasions and ant problems driven by the region's cold winters and humid summers.
-          </p>
-          <p class="font-body text-gray-200 text-sm leading-relaxed mb-8 font-semibold">
-            No matter where you are in Worcester County, Pest Services MA has the local knowledge and professional expertise to protect your property.
-          </p>
-          <a href="#contact" class="btn-gold font-body font-bold px-6 py-3 rounded-full text-sm text-center block sm:inline-block w-full sm:w-auto">
-            <i class="fa-solid fa-magnifying-glass mr-2"></i>Check If We Serve Your Area
+          <button onclick="scrollToForm()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg transition-colors text-lg w-full md:w-auto shadow-xl">
+            Talk to an Expert Today
+          </button>
+        </div>
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="bg-green-100 text-green-800 w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">1</div>
+            <div>
+              <h4 class="font-bold text-gray-900 text-lg mb-1">Inspection First</h4>
+              <p class="text-gray-600">Detailed property inspection to identify the pest species present, entry points, and conditions attracting pests.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="bg-green-100 text-green-800 w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">2</div>
+            <div>
+              <h4 class="font-bold text-gray-900 text-lg mb-1">Prevention and Exclusion</h4>
+              <p class="text-gray-600">Sealing entry points, correcting moisture issues, and improving sanitation to address root causes without pesticides.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="bg-green-100 text-green-800 w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">3</div>
+            <div>
+              <h4 class="font-bold text-gray-900 text-lg mb-1">Targeted Treatments</h4>
+              <p class="text-gray-600">Professional-grade products applied precisely to harborage areas using baits, targeted spot treatments, steam, and dusts.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="bg-green-100 text-green-800 w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">4</div>
+            <div>
+              <h4 class="font-bold text-gray-900 text-lg mb-1">Ongoing Monitoring</h4>
+              <p class="text-gray-600">Regular monitoring with traps and inspection devices detects new activity early before it becomes a serious problem.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="bg-green-100 text-green-800 w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">5</div>
+            <div>
+              <h4 class="font-bold text-gray-900 text-lg mb-1">Customer Education</h4>
+              <p class="text-gray-600">We explain our findings and provide written recommendations following every service to help maintain pest-free properties.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Commercial Section -->
+  <div id="commercial" class="bg-gray-900 text-white py-6 text-center">
+    <p class="text-lg font-bold tracking-widest uppercase text-green-400">🏢 Commercial Services</p>
+    <p class="text-gray-400 text-sm mt-1">Commercial Pest Control for Worcester Businesses</p>
+  </div>
+  
+  <section class="py-20 bg-gray-50 border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Professional Commercial Pest Control Services in Worcester, MA</h2>
+        <p class="text-xl text-green-700 font-semibold mb-6">Protecting Worcester Businesses, Hotels, Restaurants, Airbnb Properties, and Office Buildings from Pest Problems That Cost You Customers and Revenue</p>
+        <p class="text-gray-700 max-w-4xl mx-auto leading-relaxed mb-8">
+          Pest Services MA provides specialized commercial pest management programs for businesses throughout Worcester and Central Massachusetts. We understand that a pest problem in a commercial property is not just an inconvenience — it is a direct threat to your reputation, your regulatory compliance, your revenue, and your employees. Our customized commercial programs deliver comprehensive, documented pest control that keeps your business protected year-round.
+        </p>
+        <button onclick="scrollToForm()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg transition-colors text-lg shadow-xl">
+          Get a Commercial Quote Today
+        </button>
+      </div>
+
+      <div class="space-y-12">
+        <!-- The Business Case -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="bg-green-50 p-3 rounded-full"><i data-lucide="trending-down" class="w-6 h-6 text-green-600"></i></div>
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900">The Business Case</h3>
+              <p class="text-green-700 font-semibold">The Real Cost of Pests for Worcester Businesses</p>
+            </div>
+          </div>
+          <div class="text-gray-700 space-y-4">
+            <p>A pest sighting in a commercial setting costs far more than the price of treatment. One negative online review mentioning a cockroach or bed bug can suppress bookings or drive away customers for months. A failed health inspection can result in fines, forced closures, and lasting damage to your business reputation. Employee complaints about pest activity reduce morale and productivity. Contaminated inventory, damaged product, and pest-related business interruptions all carry direct financial consequences.</p>
+            <p>Health departments, franchise headquarters, property insurance providers, and lease agreements frequently require documented pest management programs. Businesses without professional pest control on record have no defense when inspections or complaints arise.</p>
+            <p>Pest Services MA gives Worcester businesses a complete, documented, reliable pest management solution — one that protects your operations, satisfies regulators, and demonstrates to customers and staff that you take safety seriously.</p>
+          </div>
+        </div>
+
+        <!-- Restaurant -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="bg-green-50 p-3 rounded-full"><i data-lucide="utensils-crossed" class="w-6 h-6 text-green-600"></i></div>
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900">Restaurant Pest Control in Worcester, MA</h3>
+              <p class="text-green-700 font-semibold">Protecting Your Kitchen, Your Reputation, and Your Health Score</p>
+            </div>
+          </div>
+          <div class="text-gray-700 space-y-4">
+            <p>Restaurants, cafeterias, bakeries, food trucks, and food processing operations in Worcester face the most demanding pest management requirements of any commercial sector. Health inspectors take pest activity in food service settings extremely seriously, and even a single incident can result in a citation, failed inspection, or forced temporary closure.</p>
+            <p>Common pest threats to Worcester area restaurants and food service businesses include German cockroaches harboring in kitchen equipment, under appliances, and in wall voids near heat and moisture. Rodents are attracted to food storage areas, grease traps, and waste handling zones. Flies breed in floor drains, garbage areas, and organic waste and enter through improperly sealed doors. Stored product pests infest dry goods including flour, grains, and spices when storage areas are not properly managed.</p>
+            <p>Our restaurant pest management program includes thorough inspections of all areas — kitchens, dining rooms, prep areas, storage rooms, loading docks, dumpster pads, and employee spaces. We use products approved and labeled for food handling facilities and application methods that prevent any contact with food preparation surfaces.</p>
+            <p>We install rodent bait stations in exterior and non-food areas, insect light traps for flying insects in appropriate locations, and perform targeted crack and crevice treatments to eliminate cockroach harborage. We work with your kitchen management team to implement sanitation protocols and proper food storage practices that support pest prevention as an operational standard, not just a treatment outcome.</p>
+            <p>Service documentation is provided after every visit to meet health department requirements and demonstrate ongoing compliance with food safety standards. We coordinate scheduling around your kitchen hours to minimize any disruption to service.</p>
+          </div>
+        </div>
+
+        <!-- Hotel -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="bg-green-50 p-3 rounded-full"><i data-lucide="hotel" class="w-6 h-6 text-green-600"></i></div>
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900">Hotel Pest Control in Worcester, MA</h3>
+              <p class="text-green-700 font-semibold">Protecting Your Guests, Your Reviews, and Your Revenue</p>
+            </div>
+          </div>
+          <div class="text-gray-700 space-y-4">
+            <p>Hotels, motels, extended stay properties, and inns throughout the Worcester area cannot afford pest problems that generate negative reviews online. A single guest complaint about bed bugs can result in hundreds of lost future bookings and months of reputational damage. Our hospitality pest management programs are designed to prevent pest problems before guests ever encounter them.</p>
+            <p>Bed bugs are the single greatest pest threat to hotel properties in Worcester and Central Massachusetts. These insects spread easily in lodging environments where guests bring luggage, sleep in beds, and move between rooms. Without a proactive monitoring and prevention program, a single infested room can become multiple affected rooms within weeks.</p>
+            <p>Our hotel bed bug prevention program includes staff training for housekeeping teams to recognize the early signs of bed bug activity during daily room turnovers, and a rapid emergency response protocol for immediate treatment of any confirmed activity. We treat affected rooms thoroughly using steam treatment and professional residual applications to eliminate all stages of bed bugs before returning rooms to service. Our technicians work discreetly, arriving professionally and treating rooms quietly to minimize disruption to hotel operations and guest experience.</p>
+            <p>Beyond bed bugs, our hotel pest management programs address ants entering guest rooms and lobbies, cockroaches in laundry facilities and food service areas, rodents in storage rooms and mechanical spaces, stinging insects nesting on building exteriors, and flies around entrances and waste areas.</p>
+            <p>Regular service visits include treatment of all back-of-house spaces, common areas, food service areas, storage rooms, mechanical rooms, and exterior grounds. Full documentation is provided after every visit to support franchise compliance, corporate audits, and property management records.</p>
+          </div>
+        </div>
+
+        <!-- Airbnb -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="bg-green-50 p-3 rounded-full"><i data-lucide="home" class="w-6 h-6 text-green-600"></i></div>
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900">Airbnb and Vacation Rental Pest Control in Worcester, MA</h3>
+              <p class="text-green-700 font-semibold">Protect Your Listing, Your Reviews, and Your Income</p>
+            </div>
+          </div>
+          <div class="text-gray-700 space-y-4">
+            <p>Short-term rental properties face pest control challenges that traditional residential services are not built to address. High guest turnover significantly increases the risk of pest introductions — particularly bed bugs — through visitor luggage and personal belongings. Property owners and Airbnb hosts often do not visit their rentals frequently enough to detect pest activity before the next guest checks in.</p>
+            <p>A single negative review mentioning pests on an Airbnb listing can be devastating to bookings and income. Platforms like Airbnb and VRBO make guest reviews publicly visible, meaning one incident can affect your listing's performance for months or even years.</p>
+            <p>Pest Services MA provides short-term rental pest management programs specifically built for Airbnb hosts and vacation rental operators in Worcester, Shrewsbury, Westborough, and across Central Massachusetts. Our services include regular property inspections between guest stays to detect any signs of pest activity, and preventive treatments of entry points and harborage areas to maintain protection between visits.</p>
+            <p>For bed bug concerns specifically, we offer pre-arrival inspections before each guest check-in for operators who want confirmed pest-free certification before welcoming new guests. This level of proactive care prevents negative reviews and demonstrates genuine commitment to guest safety and comfort.</p>
+            <p>For hosts managing multiple properties across Worcester County, we develop efficient service routes covering all your locations with consistent, reliable protection. Flexible scheduling accommodates your booking calendars, and emergency response is available when guests report any concerns during their stay.</p>
+          </div>
+        </div>
+
+        <!-- Offices -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="bg-green-50 p-3 rounded-full"><i data-lucide="building" class="w-6 h-6 text-green-600"></i></div>
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900">Office and Commercial Building Pest Control in Worcester, MA</h3>
+            </div>
+          </div>
+          <div class="text-gray-700 space-y-4">
+            <p>Office buildings, medical and dental offices, retail stores, professional suites, and other commercial properties in Worcester require professional pest management to provide productive, comfortable, and healthy environments for employees, tenants, and customers. A pest sighting in a workplace or retail setting creates an immediate negative impression and can indicate underlying sanitation or structural issues that require professional attention.</p>
+            <p>Common pest problems in Worcester office buildings and commercial properties include ants trailing along baseboards, window sills, and break room counters. Cockroaches establish themselves in break rooms, restrooms, and kitchen areas. Flies gather near entrances and break into dining or food prep areas. Rodents find their way into storage rooms, server rooms, and wall voids. Occasional invaders including spiders and beetles enter through exterior gaps during seasonal transitions.</p>
+            <p>Our office and commercial property pest management programs are customized to your facility type, tenant mix, and specific pest pressures. For multi-tenant office buildings, we coordinate with property managers to deliver building-wide protection covering lobbies, common hallways, restrooms, mechanical rooms, loading areas, and exterior grounds, while also treating individual tenant spaces as needed.</p>
+            <p>Medical and dental offices have heightened safety requirements and regulatory obligations. We use treatment methods appropriate for healthcare settings, schedule all services during non-patient hours, and provide detailed service documentation that supports accreditation requirements and health department compliance.</p>
+            <p>Retail spaces serving customers throughout Worcester and surrounding communities face intense expectations for clean, pest-free environments. Our retail pest management programs are built around prevention and monitoring to ensure that problems are addressed before customers ever encounter them.</p>
+            <p>All commercial accounts receive thorough written service reports after every visit, flexible scheduling including evenings and weekends to minimize business disruption, and our full service guarantee. Our technicians arrive professionally dressed and use discreet vehicles when discretion is important for your business environment.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- CTA Footer for Commercial -->
+      <div class="mt-16 bg-green-800 rounded-3xl p-10 text-center shadow-xl">
+        <h3 class="text-3xl font-bold text-white mb-6">Get a Custom Commercial Pest Control Quote for Your Worcester Business</h3>
+        <p class="text-green-100 text-lg max-w-4xl mx-auto leading-relaxed mb-8">
+          Pest Services MA works with businesses of all sizes throughout Worcester, Shrewsbury, Westborough, Marlborough, and Central Massachusetts. Whether you operate a busy restaurant in downtown Worcester, manage an Airbnb property in Shrewsbury, oversee a hotel near the DCU Center, or run a multi-tenant office building anywhere in Worcester County, we have the experience, licensing, and resources to protect your business. Contact us today to schedule a commercial property inspection. We will assess your facility, identify your specific pest challenges, and propose a customized program that fits your budget, operational schedule, and regulatory requirements.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <button onclick="scrollToForm()" class="bg-white text-green-800 hover:bg-gray-50 font-bold py-4 px-8 rounded-lg transition-colors text-lg shadow-xl inline-flex justify-center items-center gap-2">
+            <i data-lucide="calendar" class="w-5 h-5"></i> Request a Commercial Quote
+          </button>
+          <a href="mailto:worcesterpestcontrol@gmail.com" class="border-2 border-white text-white hover:bg-white/10 font-bold py-4 px-8 rounded-lg transition-colors text-lg shadow-xl inline-flex justify-center items-center gap-2">
+            <i data-lucide="mail" class="w-5 h-5"></i> Email Us
           </a>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============================================================
-     SECTION 3: RESIDENTIAL PEST CONTROL SERVICES
-============================================================ -->
-<section id="services" class="py-20 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-14 fade-in">
-      <span class="text-yellow-700 font-body font-bold uppercase tracking-widest text-xs">Residential Services</span>
-      <h2 class="font-display text-3xl sm:text-4xl text-pine mt-2 mb-2">Comprehensive Residential Pest Control in Worcester, MA</h2>
-      <p class="font-body text-gray-500 text-lg">Protecting Worcester Homes From Every Pest Threat</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-      <!-- Rodent -->
-      <div class="bg-white rounded-2xl p-7 shadow-md card-top-green fade-in">
-        <div class="mb-4 text-center">
-          <i class="fa-solid fa-house-chimney-crack text-yellow-600 text-4xl"></i>
-        </div>
-        <h3 class="font-display text-xl text-pine mb-1">Rodent Control</h3>
-        <p class="font-body text-yellow-700 text-sm font-semibold mb-4">Mice and Rat Extermination in Worcester</p>
-        <div class="font-body text-gray-700 text-sm leading-relaxed space-y-3">
-          <p>Mice and rats are among the most common pest problems reported across Worcester, Shrewsbury, Holden, and the surrounding towns. As temperatures drop in the fall, rodents seek entry into homes looking for warmth, food, and shelter. They can squeeze through gaps as small as a dime and establish nesting sites inside walls, attics, and crawl spaces before homeowners even know they are there.</p>
-          <p>Beyond being a nuisance, rodents pose serious health risks. Their droppings and urine can carry diseases including hantavirus, salmonella, and leptospirosis. They also cause significant property damage by gnawing on electrical wiring, insulation, and structural wood — and are responsible for a notable number of residential house fires each year.</p>
-          <p>Our rodent control program includes a thorough property inspection to locate entry points and nesting areas, strategic trap and bait station placement, exclusion work to permanently seal entry points, and ongoing monitoring to confirm complete elimination.</p>
-        </div>
-      </div>
-
-      <!-- Ants -->
-      <div class="bg-white rounded-2xl p-7 shadow-md card-top-green fade-in">
-        <div class="mb-4 text-center">
-          <i class="fa-solid fa-bug text-yellow-600 text-4xl"></i>
-        </div>
-        <h3 class="font-display text-xl text-pine mb-1">Ant Extermination</h3>
-        <p class="font-body text-yellow-700 text-sm font-semibold mb-4">Worcester, Westborough, Marlborough and Beyond</p>
-        <div class="font-body text-gray-700 text-sm leading-relaxed space-y-3">
-          <p>Ant infestations are one of the most frequent calls we receive from homeowners throughout Worcester County. Carpenter ants are especially problematic in our region, excavating tunnels through wood structures and potentially compromising the integrity of your home over time. Odorous house ants, pavement ants, and other species contaminate kitchen surfaces and food supplies.</p>
-          <p>Ant colonies can contain thousands of workers, and the ants you see represent only a small fraction of the total population. Store-bought sprays only kill the ants you can see and do nothing to address the colony at its source.</p>
-          <p>Our ant treatment program uses professional baiting systems that foraging workers carry back to feed the queen, residual perimeter treatments, and exterior barrier applications to prevent new colonies from establishing around your property.</p>
-        </div>
-      </div>
-
-      <!-- Cockroach -->
-      <div class="bg-white rounded-2xl p-7 shadow-md card-top-green fade-in">
-        <div class="mb-4 text-center">
-          <i class="fa-solid fa-bug-slash text-yellow-600 text-4xl"></i>
-        </div>
-        <h3 class="font-display text-xl text-pine mb-1">Cockroach Elimination</h3>
-        <p class="font-body text-yellow-700 text-sm font-semibold mb-4">Worcester and Central Massachusetts</p>
-        <div class="font-body text-gray-700 text-sm leading-relaxed space-y-3">
-          <p>German cockroaches are the most common cockroach species found indoors throughout the Worcester area. They thrive in kitchens, bathrooms, and utility areas with access to food, water, and warmth. American cockroaches and Oriental cockroaches are frequently found in basements, drains, and lower levels of older Worcester-area buildings.</p>
-          <p>Cockroaches spread bacteria, trigger allergy and asthma attacks, and create deeply unsanitary conditions through their droppings, shed skins, and odor. Their fast reproductive cycle means a small problem can become a severe infestation within weeks.</p>
-          <p>Our cockroach elimination program combines professional-grade gel baits, insect growth regulators, crack and crevice treatments, and thorough follow-up inspections to ensure every cockroach and egg is eliminated.</p>
-        </div>
-      </div>
-
-      <!-- Tick / Mosquito -->
-      <div class="bg-white rounded-2xl p-7 shadow-md card-top-green fade-in">
-        <div class="mb-4 text-center">
-          <i class="fa-solid fa-mosquito text-yellow-600 text-4xl"></i>
-        </div>
-        <h3 class="font-display text-xl text-pine mb-1">Tick and Mosquito Control</h3>
-        <p class="font-body text-yellow-700 text-sm font-semibold mb-4">Worcester County Outdoor Pest Management</p>
-        <div class="font-body text-gray-700 text-sm leading-relaxed space-y-3">
-          <p>The parks, wooded edges, and residential backyards throughout Worcester County provide ideal habitat for deer ticks, dog ticks, and mosquitoes. Lyme disease-carrying blacklegged ticks are a growing concern for families in towns like Holden, Paxton, Rutland, Northborough, and Grafton where wooded residential areas are common.</p>
-          <p>Mosquitoes emerge each spring and remain active through fall, turning outdoor spaces into uncomfortable environments and carrying diseases including West Nile virus. Our outdoor pest management program uses targeted vegetation treatments and breeding site reduction to significantly reduce tick and mosquito populations around your yard throughout the season.</p>
-        </div>
-      </div>
-
-      <!-- Wasp / Bee -->
-      <div class="bg-white rounded-2xl p-7 shadow-md card-top-green fade-in">
-        <div class="mb-4 text-center">
-          <i class="fa-solid fa-triangle-exclamation text-yellow-600 text-4xl"></i>
-        </div>
-        <h3 class="font-display text-xl text-pine mb-1">Wasp, Hornet, and Bee Nest Removal</h3>
-        <p class="font-body text-yellow-700 text-sm font-semibold mb-4">Worcester Area</p>
-        <div class="font-body text-gray-700 text-sm leading-relaxed space-y-3">
-          <p>Yellow jackets, hornets, paper wasps, and bees establish nests around Worcester homes each summer — under eaves, in wall voids, underground, and in attic spaces. These colonies grow throughout the season and become increasingly aggressive toward people and pets. For individuals with sting allergies, the risk is life-threatening.</p>
-          <p>Pest Services MA technicians safely remove all nests using proper protective equipment and professional-grade treatments. We also apply preventive treatments to deter new nest construction around your property each season.</p>
-        </div>
-      </div>
-
-
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION 4: BED BUG SERVICES
-============================================================ -->
-<section id="bedbugs" class="py-20 bg-pine">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-14 fade-in">
-      <span class="text-yellow-400 font-body font-bold uppercase tracking-widest text-xs">Bed Bug Specialists</span>
-      <h2 class="font-display text-3xl sm:text-4xl text-white mt-2 mb-2">Professional Bed Bug Treatment in Worcester, MA</h2>
-      <p class="font-body text-yellow-300 font-semibold text-lg mb-5">Complete Bed Bug Elimination for Worcester Homes, Apartments, and Multi-Family Properties</p>
-      <p class="font-body text-gray-300 max-w-3xl mx-auto text-base leading-relaxed">
-        Bed bugs have become a widespread and increasingly common problem in Worcester and throughout Central Massachusetts. These parasitic insects affect homes, apartments, dormitories, hotels, and rental properties regardless of cleanliness. They spread easily through infested furniture, luggage, clothing, and shared walls in multi-unit buildings — and their populations grow rapidly once established.
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-10 mb-12">
-
-      <div class="bg-white bg-opacity-5 border border-white border-opacity-10 rounded-2xl p-8 fade-in">
-        <div class="flex items-center gap-3 mb-5">
-          <i class="fa-solid fa-bed text-yellow-400 text-3xl"></i>
-          <h3 class="font-display text-2xl text-white">Understanding Bed Bugs</h3>
-        </div>
-        <div class="font-body text-gray-300 text-base leading-relaxed space-y-4">
-          <p>Bed bugs are small, flat, reddish-brown insects approximately the size of an apple seed. They feed on human blood at night while people sleep and spend the rest of their time hidden in mattress seams, box spring folds, bed frames, headboards, baseboards, electrical outlets, nightstands, and other tight spaces near sleeping areas.</p>
-          <p>Signs of a bed bug infestation include small blood spots on sheets, tiny dark fecal spots on mattresses, shed nymph skins, and in heavier infestations, a sweet musty odor. Many people develop red, itchy welts from bites, though some show no visible reaction at all. Because reactions vary and bed bugs hide so effectively, infestations often go undetected until populations are well-established.</p>
-        </div>
-      </div>
-
-      <div class="bg-white bg-opacity-5 border border-white border-opacity-10 rounded-2xl p-8 fade-in">
-        <div class="flex items-center gap-3 mb-5">
-          <i class="fa-solid fa-magnifying-glass text-yellow-400 text-3xl"></i>
-          <h3 class="font-display text-2xl text-white">Our Bed Bug Treatment Process</h3>
-        </div>
-        <div class="font-body text-gray-300 text-base leading-relaxed space-y-3">
-          <p>Every bed bug service from Pest Services MA begins with a detailed inspection by an experienced technician. We examine mattresses, box springs, bed frames, headboards, nightstands, dressers, upholstered furniture, baseboards, electrical outlets, picture frames, and all surrounding areas to accurately assess the extent of the infestation and develop a targeted treatment plan.</p>
-          <p>Our treatment approach combines multiple methods for maximum effectiveness:</p>
-          <p>Professional-grade residual insecticides are carefully applied to cracks, crevices, and void spaces where bed bugs harbor. These products provide lasting protection and eliminate bed bugs as they contact treated surfaces over the coming weeks.</p>
-          <p>Steam treatment is a central component of our bed bug elimination process. High-temperature steam kills bed bugs and their eggs on contact without the use of chemicals. Steam is ideal for treating mattresses, box springs, upholstered furniture, and other sensitive items where liquid treatments are not practical. The penetrating heat reaches bed bugs hiding deep within seams, tufts, folds, and stitching.</p>
-          <p>Professional dust formulations are applied to wall voids, electrical outlets, and other void spaces to provide long-term protection in areas where liquid treatments cannot reach. These products remain effective for months, eliminating bed bugs that may migrate from adjacent units.</p>
-          <p>We provide a Biological Bed Bug Solution for Pro-Active situations with a 3 month residual. This can also be paired with the steam treatment if someone is sensitive to chemicals.</p>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Prevention Tips -->
-    <div class="bg-white bg-opacity-5 border border-yellow-500 border-opacity-40 rounded-2xl p-8 mb-10 fade-in">
-      <div class="flex items-center gap-3 mb-4">
-        <i class="fa-solid fa-shield-virus text-yellow-400 text-3xl"></i>
-        <h3 class="font-display text-2xl text-white">Bed Bug Prevention Tips for Worcester Residents</h3>
-      </div>
-      <p class="font-body text-gray-300 text-base leading-relaxed">
-        Inspect sleeping areas regularly for early signs of activity, especially if you travel frequently, purchase used furniture, or live in a multi-unit building. Encase mattresses and box springs in certified bed bug-proof covers. When traveling, inspect hotel rooms before unpacking and keep luggage away from beds and floors. Avoid bringing used furniture or mattresses into your home without thorough inspection. In apartment buildings, seal cracks and gaps around walls and utility penetrations to prevent bed bugs from spreading between units.
-      </p>
-    </div>
-
-    <div class="text-center fade-in">
-      <a href="#contact" class="btn-gold font-body font-bold px-6 sm:px-9 py-4 rounded-full text-base text-center block sm:inline-block w-full sm:w-auto">
-        <i class="fa-solid fa-calendar-check mr-2"></i>Schedule Your Bed Bug Inspection Today
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION 5: WHY CHOOSE US
-============================================================ -->
-<section id="why-us" class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-14 fade-in">
-      <span class="text-yellow-700 font-body font-bold uppercase tracking-widest text-xs">Why Choose Us</span>
-      <h2 class="font-display text-3xl sm:text-4xl text-pine mt-2">Why Worcester Homeowners and Businesses Choose Pest Services MA</h2>
-    </div>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <div class="bg-green-50 rounded-2xl p-6 fade-in">
-        <i class="fa-solid fa-house-chimney text-pine text-3xl mb-4 block"></i>
-        <h3 class="font-display text-xl text-pine mb-2">Local Office</h3>
-        <p class="font-body text-gray-600 text-sm leading-relaxed">Our office is located locally in Worcester County. We understand the local pest species, housing types, seasonal activity patterns, and the neighborhoods where pest pressure is highest. When you call us, you connect with a team that knows your community.</p>
-      </div>
-
-      <div class="bg-green-50 rounded-2xl p-6 fade-in">
-        <i class="fa-solid fa-certificate text-pine text-3xl mb-4 block"></i>
-        <h3 class="font-display text-xl text-pine mb-2">Licensed and Certified Technicians</h3>
-        <p class="font-body text-gray-600 text-sm leading-relaxed">The field technicians dispatched to your property are fully licensed by the Commonwealth of Massachusetts and trained in integrated pest management, safety protocols, and the latest treatment technologies available in the industry.</p>
-      </div>
-
-      <div class="bg-green-50 rounded-2xl p-6 fade-in">
-        <i class="fa-solid fa-leaf text-pine text-3xl mb-4 block"></i>
-        <h3 class="font-display text-xl text-pine mb-2">Integrated Pest Management Approach</h3>
-        <p class="font-body text-gray-600 text-sm leading-relaxed">We focus on solving the root cause of pest problems, not just spraying and hoping for the best. Our IPM approach combines inspection, sanitation guidance, exclusion, and targeted treatments using the least-toxic methods effective for each situation.</p>
-      </div>
-
-      <div class="bg-green-50 rounded-2xl p-6 fade-in">
-        <i class="fa-solid fa-medal text-pine text-3xl mb-4 block"></i>
-        <h3 class="font-display text-xl text-pine mb-2">Satisfaction Guaranteed</h3>
-        <p class="font-body text-gray-600 text-sm leading-relaxed">We stand behind every service we provide. If pest activity continues following treatment, we return to re-treat at no additional charge until the problem is fully resolved.</p>
-      </div>
-
-      <div class="bg-green-50 rounded-2xl p-6 fade-in">
-        <i class="fa-solid fa-heart-pulse text-pine text-3xl mb-4 block"></i>
-        <h3 class="font-display text-xl text-pine mb-2">Safe for Families and Pets</h3>
-        <p class="font-body text-gray-600 text-sm leading-relaxed">Our technicians are trained in proper handling and application techniques that protect your household while maximizing treatment effectiveness. We select products appropriate for the environment and apply them according to all state and federal regulations.</p>
-      </div>
-
-      <div class="bg-green-50 rounded-2xl p-6 fade-in">
-        <i class="fa-solid fa-clock text-pine text-3xl mb-4 block"></i>
-        <h3 class="font-display text-xl text-pine mb-2">Flexible Scheduling</h3>
-        <p class="font-body text-gray-600 text-sm leading-relaxed">Except for tick and mosquito service, we offer appointment windows that work for residential and commercial customers.  For urgent pest problems, contact us for an urgent free inspection.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION 6: SEASONAL PEST GUIDE
-============================================================ -->
-<section id="seasonal" class="py-20 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-14 fade-in">
-      <span class="text-yellow-700 font-body font-bold uppercase tracking-widest text-xs">Seasonal Guide</span>
-      <h2 class="font-display text-3xl sm:text-4xl text-pine mt-2">Worcester Pest Activity by Season — What to Expect and When</h2>
-    </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-      <div class="bg-white rounded-2xl p-6 shadow-sm card-top-gold fade-in">
-        <div class="text-yellow-700 font-body font-bold uppercase tracking-widest text-xs mb-3">Spring</div>
-        <i class="fa-solid fa-seedling text-pine text-2xl mb-3 block"></i>
-        <p class="font-body text-gray-700 text-sm leading-relaxed">As temperatures rise across Worcester County, ant colonies emerge and begin foraging into homes. Ticks and mosquitoes become active in wooded areas and residential yards. Stinging insects begin constructing new nests under eaves and in wall voids. Spring is the ideal time to schedule preventive perimeter treatments before pest populations build.</p>
-      </div>
-
-      <div class="bg-white rounded-2xl p-6 shadow-sm card-top-gold fade-in">
-        <div class="text-yellow-700 font-body font-bold uppercase tracking-widest text-xs mb-3">Summer</div>
-        <i class="fa-solid fa-sun text-pine text-2xl mb-3 block"></i>
-        <p class="font-body text-gray-700 text-sm leading-relaxed">Summer brings peak activity for mosquitoes, yellow jackets, hornets, and paper wasps throughout the Worcester area. Flies become problematic around restaurants, food service areas, and properties near organic waste. Carpenter ants are frequently seen trailing through kitchens and along exterior walls. Bed bug activity increases as travel and guest turnover rises.</p>
-      </div>
-
-      <div class="bg-white rounded-2xl p-6 shadow-sm card-top-gold fade-in">
-        <div class="text-yellow-700 font-body font-bold uppercase tracking-widest text-xs mb-3">Fall</div>
-        <i class="fa-solid fa-leaf text-pine text-2xl mb-3 block"></i>
-        <p class="font-body text-gray-700 text-sm leading-relaxed">As temperatures drop, mice and rats begin seeking warm shelter inside homes and businesses across Worcester, Shrewsbury, Auburn, and surrounding towns. Overwintering insects including stink bugs and cluster flies attempt to enter through cracks in foundations and around windows. Fall is the most critical season for rodent exclusion and interior treatments.</p>
-      </div>
-
-      <div class="bg-white rounded-2xl p-6 shadow-sm card-top-gold fade-in">
-        <div class="text-yellow-700 font-body font-bold uppercase tracking-widest text-xs mb-3">Winter</div>
-        <i class="fa-solid fa-snowflake text-pine text-2xl mb-3 block"></i>
-        <p class="font-body text-gray-700 text-sm leading-relaxed">Rodents established inside walls and basements remain active throughout winter, continuing to breed and cause damage. Cockroach populations indoors remain active year-round. Winter service visits maintain protective barriers and address any interior activity. It is also an ideal time to plan spring prevention programs.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION 7: IPM APPROACH
-============================================================ -->
-<section class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid md:grid-cols-2 gap-14 items-start">
-
-      <div class="fade-in">
-        <span class="text-yellow-700 font-body font-bold uppercase tracking-widest text-xs">Our Method</span>
-        <h2 class="font-display text-3xl sm:text-4xl text-pine mt-2 mb-6">Our Integrated Pest Management Philosophy</h2>
-        <p class="font-body text-gray-700 text-base leading-relaxed mb-8">
-          At Pest Services MA, we believe effective pest control starts with understanding, not just spraying. Our integrated pest management approach follows a structured process that prioritizes long-term results over quick fixes. We begin with a detailed property inspection, address root causes through prevention and exclusion, apply targeted treatments only where necessary, monitor ongoing results, and educate our customers so they maintain pest-free properties between our visits.
+  <!-- 9. Contact Section -->
+  <section id="contact-form" class="py-20 bg-gradient-to-br from-green-50 to-green-100 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-16">
+        <div class="inline-block bg-green-100 text-green-800 font-bold px-4 py-1 rounded-full mb-4 uppercase tracking-wider text-sm shadow-sm ring-1 ring-green-600/20">Fast Action Required</div>
+        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">Schedule Your Worcester Pest Control Inspection Today</h2>
+        <p class="text-xl text-gray-700 mb-8 font-medium max-w-2xl mx-auto">
+          Do not let pests compromise the health, comfort, or safety of your home or business. Pest Services MA is ready to help with prompt, professional service.
         </p>
-        <a href="#contact" class="btn-pine font-body font-bold px-7 py-3 rounded-full text-base text-center block sm:inline-block w-full sm:w-auto">
-          <i class="fa-solid fa-phone mr-2"></i>Talk to an Expert Today
-        </a>
       </div>
 
-      <div class="space-y-7 fade-in">
+      <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12 border-t-8 border-green-600">
+        <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+          <input type="hidden" name="access_key" value="8c4de8be-9cd3-4415-9bd9-f300420548d1">
+          <input type="hidden" name="subject" value="New Free Inspection Request from Pest Services MA">
+          <input type="hidden" name="Source" value="Worcester MA Landing Page">
 
-        <div class="flex gap-5 items-start">
-          <div class="step-num flex-shrink-0">01</div>
+          <div class="success-message hidden bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg flex items-center gap-2">
+            <i data-lucide="check-circle" class="w-5 h-5"></i>
+            <span>Thank you! We'll contact you shortly to schedule your free inspection.</span>
+          </div>
+
+          <div class="error-message hidden bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg"></div>
+
           <div>
-            <h4 class="font-display text-lg text-pine mb-1">Inspection First</h4>
-            <p class="font-body text-gray-600 text-sm leading-relaxed">Every service begins with a detailed property inspection to identify the pest species present, all areas of activity, entry points, and conditions attracting pests to your property.</p>
+            <label class="block text-sm font-bold text-gray-700 mb-1">Full Name *</label>
+            <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-50" placeholder="John Smith" />
           </div>
-        </div>
 
-        <div class="flex gap-5 items-start">
-          <div class="step-num flex-shrink-0">02</div>
-          <div>
-            <h4 class="font-display text-lg text-pine mb-1">Prevention and Exclusion</h4>
-            <p class="font-body text-gray-600 text-sm leading-relaxed">We address root causes before reaching for chemical treatments. Sealing entry points, correcting moisture issues, improving sanitation, and eliminating harborage reduce or eliminate pest populations without pesticides.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-5 items-start">
-          <div class="step-num flex-shrink-0">03</div>
-          <div>
-            <h4 class="font-display text-lg text-pine mb-1">Targeted Treatments</h4>
-            <p class="font-body text-gray-600 text-sm leading-relaxed">When treatments are necessary, we use professional-grade products selected for effectiveness, safety, and minimal environmental impact. We apply them precisely to harborage areas using baits, targeted spot treatments, steam, and dusts rather than broad-spectrum spraying.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-5 items-start">
-          <div class="step-num flex-shrink-0">04</div>
-          <div>
-            <h4 class="font-display text-lg text-pine mb-1">Ongoing Monitoring</h4>
-            <p class="font-body text-gray-600 text-sm leading-relaxed">Regular monitoring with traps, bait stations, and inspection devices detects new activity early before it becomes a serious problem. We track treatment effectiveness and adjust our approach based on what we observe.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-5 items-start">
-          <div class="step-num flex-shrink-0">05</div>
-          <div>
-            <h4 class="font-display text-lg text-pine mb-1">Customer Education</h4>
-            <p class="font-body text-gray-600 text-sm leading-relaxed">We explain our findings in plain language and provide written recommendations following every service. Informed customers maintain pest-free properties more successfully over the long term.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     COMMERCIAL PREVIEW STRIP
-============================================================ -->
-<section class="py-16 bg-pine relative overflow-hidden">
-  <div class="absolute inset-0 bg-cover bg-center opacity-10" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80');"></div>
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid md:grid-cols-2 gap-10 items-center">
-      <div class="fade-in">
-        <span class="text-yellow-400 font-body font-bold uppercase tracking-widest text-xs">For Businesses</span>
-        <h2 class="font-display text-3xl sm:text-4xl text-white mt-2 mb-5">Commercial Pest Control for Worcester Businesses</h2>
-        <p class="font-body text-gray-300 text-base leading-relaxed mb-6">
-          Pest Services MA provides specialized commercial pest management programs for restaurants, hotels, Airbnb properties, office buildings, and all commercial facilities throughout Worcester and Central Massachusetts. We understand that a pest problem in a commercial property threatens your reputation, regulatory compliance, revenue, and employees. Our customized commercial programs deliver comprehensive, documented pest control that keeps your business protected year-round.
-        </p>
-        <a href="#commercial" class="btn-gold font-body font-bold px-7 py-3 rounded-full text-base text-center block sm:inline-block w-full sm:w-auto">
-          View All Commercial Services
-        </a>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 fade-in">
-        <a href="#commercial" class="bg-white bg-opacity-10 hover:bg-opacity-20 transition-all border border-white border-opacity-20 rounded-xl p-5 text-white font-body text-sm font-semibold">
-          <i class="fa-solid fa-utensils text-yellow-400 text-2xl mb-2 block"></i>Restaurant and Food Service Pest Control
-        </a>
-        <a href="#commercial" class="bg-white bg-opacity-10 hover:bg-opacity-20 transition-all border border-white border-opacity-20 rounded-xl p-5 text-white font-body text-sm font-semibold">
-          <i class="fa-solid fa-hotel text-yellow-400 text-2xl mb-2 block"></i>Hotel and Lodging Pest Management
-        </a>
-        <a href="#commercial" class="bg-white bg-opacity-10 hover:bg-opacity-20 transition-all border border-white border-opacity-20 rounded-xl p-5 text-white font-body text-sm font-semibold">
-          <i class="fa-solid fa-house-user text-yellow-400 text-2xl mb-2 block"></i>Airbnb and Vacation Rental Prevention
-        </a>
-        <a href="#commercial" class="bg-white bg-opacity-10 hover:bg-opacity-20 transition-all border border-white border-opacity-20 rounded-xl p-5 text-white font-body text-sm font-semibold">
-          <i class="fa-solid fa-building text-yellow-400 text-2xl mb-2 block"></i>Office Building Pest Control
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION 9: CONTACT / CTA
-============================================================ -->
-<section id="contact" class="py-20 bg-yellow-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12 fade-in">
-      <span class="text-yellow-700 font-body font-bold uppercase tracking-widest text-xs">Get In Touch</span>
-      <h2 class="font-display text-3xl sm:text-4xl text-pine mt-2 mb-4">Schedule Your Worcester Pest Control Inspection Today</h2>
-      <p class="font-body text-gray-700 max-w-2xl mx-auto text-base leading-relaxed">
-        Do not let pests compromise the health, comfort, or safety of your home or business. Pest Services MA is ready to help with prompt, professional service throughout Worcester and Central Massachusetts. Evening and weekend appointments are available. Emergency service for urgent pest problems is available with rapid response.
-      </p>
-      <p class="font-body text-gray-500 mt-3 text-sm max-w-3xl mx-auto">
-        <strong>Serving:</strong> Worcester, Shrewsbury, Westborough, Northborough, Southborough, Marlborough, Grafton, Millbury, Auburn, Leicester, Holden, West Boylston, Boylston, Clinton, Northbridge, Uxbridge, Oxford, Charlton, Paxton, Rutland, Spencer, and surrounding communities.
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-12 items-start">
-
-      <!-- Contact Info -->
-      <div class="fade-in space-y-5">
-
-
-        <div class="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-100 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 overflow-hidden w-full">
-          <div class="bg-pine rounded-full w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center flex-shrink-0">
-            <i class="fa-solid fa-envelope text-white text-lg sm:text-xl"></i>
-          </div>
-          <div class="min-w-0 w-full">
-            <div class="font-body text-xs text-gray-500 uppercase tracking-widest">Email</div>
-            <a href="mailto:worcesterpestcontrol@gmail.com" class="font-display text-lg sm:text-xl text-pine hover:text-yellow-700 transition-colors break-words overflow-wrap-anywhere inline-block w-full">worcesterpestcontrol@gmail.com</a>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-100 flex flex-col sm:flex-row items-start gap-4 sm:gap-5 w-full">
-          <div class="bg-pine rounded-full w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center flex-shrink-0">
-            <i class="fa-solid fa-location-dot text-white text-lg sm:text-xl"></i>
-          </div>
-          <div>
-            <div class="font-body text-xs text-gray-500 uppercase tracking-widest mb-1">Service Area</div>
-            <div class="font-body text-gray-700 text-sm leading-relaxed">Worcester, MA and all of Worcester County, Central Massachusetts</div>
-          </div>
-        </div>
-
-        <div class="bg-pine rounded-2xl p-6 text-white">
-          <div class="flex items-center gap-3 mb-3">
-            <i class="fa-solid fa-bolt text-yellow-400 text-2xl"></i>
-            <h4 class="font-display text-xl">Emergency Service Available</h4>
-          </div>
-          <p class="font-body text-gray-300 text-sm leading-relaxed">For urgent pest problems that cannot wait, contact us for an immediate inspection.</p>
-        </div>
-      </div>
-
-      <!-- Form -->
-      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-gray-100 fade-in w-full">
-        <h3 class="font-display text-2xl text-pine mb-6">Request Your Free Inspection</h3>
-        <div id="form-error" class="hidden bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg p-3 mb-4 font-body"></div>
-        <div id="form-success" class="hidden bg-green-50 border border-green-200 text-green-800 text-sm rounded-lg p-3 mb-4 font-body font-semibold">Thank you. We will contact you shortly to schedule your free inspection.</div>
-
-        <div class="space-y-4 font-body">
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-1">Full Name *</label>
-            <input id="f-name" type="text" placeholder="Your full name"
-              class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-pine" />
-          </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-1">Phone *</label>
-              <input id="f-phone" type="tel" placeholder="(508) XXX-XXXX"
-                class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-pine" />
+              <label class="block text-sm font-bold text-gray-700 mb-1">Phone Number *</label>
+              <input type="tel" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-50" placeholder="(508) 555-0123" />
             </div>
             <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-1">Email *</label>
-              <input id="f-email" type="email" placeholder="you@email.com"
-                class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-pine" />
+              <label class="block text-sm font-bold text-gray-700 mb-1">Email Address *</label>
+              <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-50" placeholder="john@example.com" />
             </div>
           </div>
+
           <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-1">Service Needed</label>
-            <select id="f-service" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-pine">
+            <label class="block text-sm font-bold text-gray-700 mb-1">Service Needed</label>
+            <select name="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-50">
               <option value="">Select a Service</option>
-              <option>Commercial Services</option>
-              <option>Rodent Control</option>
-              <option>Ant Extermination</option>
-              <option>Cockroach Elimination</option>
-              <option>Bed Bug Treatment</option>
-              <option>Tick and Mosquito Control</option>
-              <option>Wasp and Bee Nest Removal</option>
-              <option>Other</option>
+              <option value="commercial">Commercial Services</option>
+              <option value="rodent">Rodent Control</option>
+              <option value="ant">Ant Extermination</option>
+              <option value="cockroach">Cockroach Elimination</option>
+              <option value="bedbug">Bed Bug Treatment</option>
+              <option value="tick_mosquito">Tick and Mosquito Control</option>
+              <option value="wasp_bee">Wasp and Bee Nest Removal</option>
+              <option value="other">Other</option>
             </select>
           </div>
+
           <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-1">Message</label>
-            <textarea id="f-message" rows="4" placeholder="Describe your pest problem or ask us anything..."
-              class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-pine resize-none"></textarea>
+            <label class="block text-sm font-bold text-gray-700 mb-1">Additional Details</label>
+            <textarea name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-50" placeholder="Describe your pest problem..."></textarea>
           </div>
-          <button onclick="submitForm()" class="btn-gold w-full font-body font-bold py-4 rounded-full text-base text-center">
-            <i class="fa-solid fa-paper-plane mr-2"></i>Book Your Free Inspection Now
+
+          <div class="flex items-start gap-3 bg-gray-50 border border-gray-200 rounded-lg p-4">
+            <input type="checkbox" id="consent" name="consent" required class="mt-1 w-5 h-5 accent-green-600 flex-shrink-0 cursor-pointer" />
+            <label for="consent" class="text-sm text-gray-600 leading-relaxed cursor-pointer">
+              I have read and agree to the 
+              <a href="/privacy-policy.html" target="_blank" class="text-green-600 hover:text-green-700 font-semibold underline">Privacy Policy</a> 
+              and 
+              <a href="/disclaimer.html" target="_blank" class="text-green-600 hover:text-green-700 font-semibold underline">Third-Party Disclaimer</a>.
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-lg transition-colors text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-4 shadow-lg">
+            <span class="btn-text">Book Your Free Inspection Now</span>
+            <i data-lucide="loader-2" class="loading-icon hidden w-5 h-5 animate-spin"></i>
           </button>
-        </div>
+        </form>
       </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============================================================
-     COMMERCIAL PAGE SECTION
-============================================================ -->
-<div id="commercial">
-
-  <!-- Commercial Hero -->
-  <div class="relative py-24">
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80');"></div>
-    <div class="absolute inset-0 bg-pine opacity-92"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <span class="inline-block bg-yellow-600 text-white text-xs font-body font-bold uppercase tracking-widest px-4 py-1 rounded-full mb-5">Commercial Services — Worcester, MA</span>
-      <h2 class="font-display text-4xl sm:text-5xl text-white mb-5 leading-tight">Professional Commercial Pest Control Services in Worcester, MA</h2>
-      <p class="font-body text-yellow-300 text-lg font-semibold mb-5">Protecting Worcester Businesses, Hotels, Restaurants, Airbnb Properties, and Office Buildings from Pest Problems That Cost You Customers and Revenue</p>
-      <p class="font-body text-gray-300 max-w-3xl mx-auto text-base leading-relaxed mb-8">
-        Pest Services MA provides specialized commercial pest management programs for businesses throughout Worcester and Central Massachusetts. We understand that a pest problem in a commercial property is not just an inconvenience — it is a direct threat to your reputation, your regulatory compliance, your revenue, and your employees. Our customized commercial programs deliver comprehensive, documented pest control that keeps your business protected year-round.
-      </p>
-      <a href="#contact" class="btn-gold font-body font-bold px-6 sm:px-9 py-4 rounded-full text-base text-center block sm:inline-block w-full sm:w-auto">
-        <i class="fa-solid fa-building mr-2"></i>Get a Commercial Quote Today
-      </a>
-    </div>
-  </div>
-
-  <!-- Why Commercial -->
-  <div class="py-20 bg-white">
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12 fade-in">
-        <span class="text-yellow-700 font-body font-bold uppercase tracking-widest text-xs">The Business Case</span>
-        <h2 class="font-display text-3xl sm:text-4xl text-pine mt-2">The Real Cost of Pests for Worcester Businesses</h2>
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div class="md:col-span-1">
+          <a href="#home" class="inline-block mb-4 bg-white p-2 rounded-xl shadow-sm">
+            <img src="/images/pest-services-logo.png" alt="Pest Services MA Logo" class="h-16 w-auto" />
+          </a>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">
+            Worcester's locally operated pest control company. Serving Central Massachusetts with licensed, effective, and environmentally responsible pest management solutions.
+          </p>
+        </div>
+        
+        <div>
+          <h5 class="text-lg font-bold mb-4">Quick Links</h5>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#home" class="hover:text-white transition">Home</a></li>
+            <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+            <li><a href="#commercial" class="hover:text-white transition">Commercial Services</a></li>
+            <li><a href="#services" class="hover:text-white transition">Residential Services</a></li>
+            <li><a href="#bedbugs" class="hover:text-white transition">Bed Bug Treatment</a></li>
+            <li><a href="#contact-form" class="hover:text-white transition">Contact Us</a></li>
+            <li><a href="/privacy-policy.html" class="hover:text-white transition">Privacy Policy</a></li>
+            <li><a href="/disclaimer.html" class="hover:text-white transition">Third-Party Disclaimer</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h5 class="text-lg font-bold mb-4">Our Services</h5>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li>Commercial Pest Management</li>
+            <li>Rodent Control</li>
+            <li>Ant Extermination</li>
+            <li>Cockroach Elimination</li>
+            <li>Bed Bug Steam Treatment</li>
+            <li>Tick and Mosquito Control</li>
+            <li>Wasp and Bee Removal</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h5 class="text-lg font-bold mb-4">Contact Info</h5>
+          <address class="not-italic space-y-2 text-gray-400 text-sm leading-relaxed">
+            <p><i data-lucide="mail" class="w-4 h-4 inline mr-1"></i> worcesterpestcontrol@gmail.com</p>
+            <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-1"></i> Worcester, MA</p>
+            <p class="mt-4 font-bold text-white">Serving:</p>
+            <p>Worcester, Shrewsbury, Westborough, Marlborough, Auburn, Holden, Millbury, Grafton, and Central MA.</p>
+          </address>
+        </div>
       </div>
-      <div class="max-w-4xl mx-auto font-body text-gray-700 text-base leading-relaxed space-y-5 fade-in">
-        <p>A pest sighting in a commercial setting costs far more than the price of treatment. One negative online review mentioning a cockroach or bed bug can suppress bookings or drive away customers for months. A failed health inspection can result in fines, forced closures, and lasting damage to your business reputation. Employee complaints about pest activity reduce morale and productivity. Contaminated inventory, damaged product, and pest-related business interruptions all carry direct financial consequences.</p>
-        <p>Health departments, franchise headquarters, property insurance providers, and lease agreements frequently require documented pest management programs. Businesses without professional pest control on record have no defense when inspections or complaints arise.</p>
-        <p>Pest Services MA gives Worcester businesses a complete, documented, reliable pest management solution — one that protects your operations, satisfies regulators, and demonstrates to customers and staff that you take safety seriously.</p>
+      
+      <div class="border-t border-gray-800 pt-6 text-center text-gray-400 text-sm">
+        <p>&copy; 2026 Pest Services MA. All Rights Reserved. | PestControlMA.com | Licensed Pest Control Worcester, MA</p>
       </div>
     </div>
+  </footer>
+
+  <!-- Floating Mobile Button -->
+  <div class="fixed bottom-4 left-4 right-4 md:left-auto md:bottom-6 md:right-6 z-40 group">
+    <button onclick="scrollToForm()" class="w-full md:w-auto bg-gradient-to-r from-green-500 to-green-700 hover:from-green-600 hover:to-green-800 text-white font-bold py-3.5 md:py-4 px-4 md:px-6 rounded-full shadow-2xl transition-all transform md:hover:scale-105 flex justify-center items-center gap-2.5 md:gap-3 border-2 md:border-4 border-white">
+      <div class="bg-white/20 p-1.5 md:p-2 rounded-full flex-shrink-0">
+        <i data-lucide="calendar-check" class="w-5 h-5 md:w-6 md:h-6 animate-pulse"></i>
+      </div>
+      <span class="text-base sm:text-lg md:text-xl whitespace-nowrap leading-none">Get Free Inspection</span>
+    </button>
   </div>
 
-  <!-- Commercial Cards -->
-  <div class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+  <script>
+    lucide.createIcons();
 
-      <!-- Restaurant -->
-      <div class="bg-white rounded-2xl shadow-md comm-left p-8 md:p-10 fade-in">
-        <div class="flex items-start gap-5 mb-6">
-          <div class="bg-green-50 rounded-full p-4 flex-shrink-0">
-            <i class="fa-solid fa-utensils text-pine text-3xl"></i>
-          </div>
-          <div>
-            <h3 class="font-display text-2xl text-pine mb-1">Restaurant Pest Control in Worcester, MA</h3>
-            <p class="font-body text-yellow-700 text-sm font-semibold">Protecting Your Kitchen, Your Reputation, and Your Health Score</p>
-          </div>
-        </div>
-        <div class="font-body text-gray-700 text-base leading-relaxed space-y-4">
-          <p>Restaurants, cafeterias, bakeries, food trucks, and food processing operations in Worcester face the most demanding pest management requirements of any commercial sector. Health inspectors take pest activity in food service settings extremely seriously, and even a single incident can result in a citation, failed inspection, or forced temporary closure.</p>
-          <p>Common pest threats to Worcester area restaurants and food service businesses include German cockroaches harboring in kitchen equipment, under appliances, and in wall voids near heat and moisture. Rodents are attracted to food storage areas, grease traps, and waste handling zones. Flies breed in floor drains, garbage areas, and organic waste and enter through improperly sealed doors. Stored product pests infest dry goods including flour, grains, and spices when storage areas are not properly managed.</p>
-          <p>Our restaurant pest management program includes thorough inspections of all areas — kitchens, dining rooms, prep areas, storage rooms, loading docks, dumpster pads, and employee spaces. We use products approved and labeled for food handling facilities and application methods that prevent any contact with food preparation surfaces.</p>
-          <p>We install rodent bait stations in exterior and non-food areas, insect light traps for flying insects in appropriate locations, and perform targeted crack and crevice treatments to eliminate cockroach harborage. We work with your kitchen management team to implement sanitation protocols and proper food storage practices that support pest prevention as an operational standard, not just a treatment outcome.</p>
-          <p>Service documentation is provided after every visit to meet health department requirements and demonstrate ongoing compliance with food safety standards. We coordinate scheduling around your kitchen hours to minimize any disruption to service.</p>
-        </div>
-      </div>
-
-      <!-- Hotel -->
-      <div class="bg-white rounded-2xl shadow-md comm-left p-8 md:p-10 fade-in">
-        <div class="flex items-start gap-5 mb-6">
-          <div class="bg-green-50 rounded-full p-4 flex-shrink-0">
-            <i class="fa-solid fa-hotel text-pine text-3xl"></i>
-          </div>
-          <div>
-            <h3 class="font-display text-2xl text-pine mb-1">Hotel Pest Control in Worcester, MA</h3>
-            <p class="font-body text-yellow-700 text-sm font-semibold">Protecting Your Guests, Your Reviews, and Your Revenue</p>
-          </div>
-        </div>
-        <div class="font-body text-gray-700 text-base leading-relaxed space-y-4">
-          <p>Hotels, motels, extended stay properties, and inns throughout the Worcester area cannot afford pest problems that generate negative reviews online. A single guest complaint about bed bugs can result in hundreds of lost future bookings and months of reputational damage. Our hospitality pest management programs are designed to prevent pest problems before guests ever encounter them.</p>
-          <p>Bed bugs are the single greatest pest threat to hotel properties in Worcester and Central Massachusetts. These insects spread easily in lodging environments where guests bring luggage, sleep in beds, and move between rooms. Without a proactive monitoring and prevention program, a single infested room can become multiple affected rooms within weeks.</p>
-          <p>Our hotel bed bug prevention program includes staff training for housekeeping teams to recognize the early signs of bed bug activity during daily room turnovers, and a rapid emergency response protocol for immediate treatment of any confirmed activity. We treat affected rooms thoroughly using steam treatment and professional residual applications to eliminate all stages of bed bugs before returning rooms to service. Our technicians work discreetly, arriving professionally and treating rooms quietly to minimize disruption to hotel operations and guest experience.</p>
-          <p>Beyond bed bugs, our hotel pest management programs address ants entering guest rooms and lobbies, cockroaches in laundry facilities and food service areas, rodents in storage rooms and mechanical spaces, stinging insects nesting on building exteriors, and flies around entrances and waste areas.</p>
-          <p>Regular service visits include treatment of all back-of-house spaces, common areas, food service areas, storage rooms, mechanical rooms, and exterior grounds. Full documentation is provided after every visit to support franchise compliance, corporate audits, and property management records.</p>
-        </div>
-      </div>
-
-      <!-- Airbnb -->
-      <div class="bg-white rounded-2xl shadow-md comm-left p-8 md:p-10 fade-in">
-        <div class="flex items-start gap-5 mb-6">
-          <div class="bg-green-50 rounded-full p-4 flex-shrink-0">
-            <i class="fa-solid fa-house-user text-pine text-3xl"></i>
-          </div>
-          <div>
-            <h3 class="font-display text-2xl text-pine mb-1">Airbnb and Vacation Rental Pest Control in Worcester, MA</h3>
-            <p class="font-body text-yellow-700 text-sm font-semibold">Protect Your Listing, Your Reviews, and Your Income</p>
-          </div>
-        </div>
-        <div class="font-body text-gray-700 text-base leading-relaxed space-y-4">
-          <p>Short-term rental properties face pest control challenges that traditional residential services are not built to address. High guest turnover significantly increases the risk of pest introductions — particularly bed bugs — through visitor luggage and personal belongings. Property owners and Airbnb hosts often do not visit their rentals frequently enough to detect pest activity before the next guest checks in.</p>
-          <p>A single negative review mentioning pests on an Airbnb listing can be devastating to bookings and income. Platforms like Airbnb and VRBO make guest reviews publicly visible, meaning one incident can affect your listing's performance for months or even years.</p>
-          <p>Pest Services MA provides short-term rental pest management programs specifically built for Airbnb hosts and vacation rental operators in Worcester, Shrewsbury, Westborough, and across Central Massachusetts. Our services include regular property inspections between guest stays to detect any signs of pest activity, and preventive treatments of entry points and harborage areas to maintain protection between visits.</p>
-          <p>For bed bug concerns specifically, we offer pre-arrival inspections before each guest check-in for operators who want confirmed pest-free certification before welcoming new guests. This level of proactive care prevents negative reviews and demonstrates genuine commitment to guest safety and comfort.</p>
-          <p>For hosts managing multiple properties across Worcester County, we develop efficient service routes covering all your locations with consistent, reliable protection. Flexible scheduling accommodates your booking calendars, and emergency response is available when guests report any concerns during their stay.</p>
-        </div>
-      </div>
-
-      <!-- Offices -->
-      <div class="bg-white rounded-2xl shadow-md comm-left p-8 md:p-10 fade-in">
-        <div class="flex items-start gap-5 mb-6">
-          <div class="bg-green-50 rounded-full p-4 flex-shrink-0">
-            <i class="fa-solid fa-building text-pine text-3xl"></i>
-          </div>
-          <div>
-            <h3 class="font-display text-2xl text-pine mb-1">Office and Commercial Building Pest Control in Worcester, MA</h3>
-          </div>
-        </div>
-        <div class="font-body text-gray-700 text-base leading-relaxed space-y-4">
-          <p>Office buildings, medical and dental offices, retail stores, professional suites, and other commercial properties in Worcester require professional pest management to provide productive, comfortable, and healthy environments for employees, tenants, and customers. A pest sighting in a workplace or retail setting creates an immediate negative impression and can indicate underlying sanitation or structural issues that require professional attention.</p>
-          <p>Common pest problems in Worcester office buildings and commercial properties include ants trailing along baseboards, window sills, and break room counters. Cockroaches establish themselves in break rooms, restrooms, and kitchen areas. Flies gather near entrances and break into dining or food prep areas. Rodents find their way into storage rooms, server rooms, and wall voids. Occasional invaders including spiders and beetles enter through exterior gaps during seasonal transitions.</p>
-          <p>Our office and commercial property pest management programs are customized to your facility type, tenant mix, and specific pest pressures. For multi-tenant office buildings, we coordinate with property managers to deliver building-wide protection covering lobbies, common hallways, restrooms, mechanical rooms, loading areas, and exterior grounds, while also treating individual tenant spaces as needed.</p>
-          <p>Medical and dental offices have heightened safety requirements and regulatory obligations. We use treatment methods appropriate for healthcare settings, schedule all services during non-patient hours, and provide detailed service documentation that supports accreditation requirements and health department compliance.</p>
-          <p>Retail spaces serving customers throughout Worcester and surrounding communities face intense expectations for clean, pest-free environments. Our retail pest management programs are built around prevention and monitoring to ensure that problems are addressed before customers ever encounter them.</p>
-          <p>All commercial accounts receive thorough written service reports after every visit, flexible scheduling including evenings and weekends to minimize business disruption, and our full service guarantee. Our technicians arrive professionally dressed and use discreet vehicles when discretion is important for your business environment.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Commercial CTA -->
-  <div class="py-16 bg-yellow-600">
-    <div class="max-w-4xl mx-auto px-4 text-center fade-in">
-      <h2 class="font-display text-3xl sm:text-4xl text-white mb-5">Get a Custom Commercial Pest Control Quote for Your Worcester Business</h2>
-      <p class="font-body text-yellow-100 text-base leading-relaxed mb-8">
-        Pest Services MA works with businesses of all sizes throughout Worcester, Shrewsbury, Westborough, Marlborough, and Central Massachusetts. Whether you operate a busy restaurant in downtown Worcester, manage an Airbnb property in Shrewsbury, oversee a hotel near the DCU Center, or run a multi-tenant office building anywhere in Worcester County, we have the experience, licensing, and resources to protect your business. Contact us today to schedule a commercial property inspection. We will assess your facility, identify your specific pest challenges, and propose a customized program that fits your budget, operational schedule, and regulatory requirements.
-      </p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="#contact" class="bg-white text-yellow-800 font-body font-bold px-6 sm:px-9 py-4 rounded-full text-sm sm:text-base hover:bg-yellow-50 transition-colors text-center block w-full sm:w-auto">
-          <i class="fa-solid fa-calendar-check mr-2"></i>Request a Commercial Pest Control Quote
-        </a>
-        <a href="mailto:worcesterpestcontrol@gmail.com" class="btn-pine font-body font-bold px-6 sm:px-9 py-4 rounded-full text-sm sm:text-base text-center block w-full sm:w-auto border-2 border-transparent">
-          <i class="fa-solid fa-envelope mr-2"></i>Email Us
-        </a>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- ============================================================
-     FOOTER
-============================================================ -->
-<footer class="bg-pine text-white pt-16 pb-8">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-
-      <div>
-        <div class="flex items-center gap-2 mb-4">
-          <img src="/images/pest-services-logo.png" alt="Pest Services MA" class="h-20 sm:h-24 w-auto">
-        </div>
-        <p class="font-body text-gray-400 text-sm leading-relaxed mb-4">Worcester's locally operated pest control company. Serving Central Massachusetts with licensed, effective, and environmentally responsible pest management solutions.</p>
-        <p class="font-body text-gray-400 text-sm"><i class="fa-solid fa-location-dot text-yellow-400 mr-2"></i>Worcester, MA</p>
-        <p class="font-body text-gray-400 text-sm mt-1"><i class="fa-solid fa-envelope text-yellow-400 mr-2"></i>worcesterpestcontrol@gmail.com</p>
-      </div>
-
-      <div>
-        <h4 class="font-display text-lg mb-4">Quick Links</h4>
-        <ul class="font-body text-gray-400 text-sm space-y-2">
-          <li><a href="#home"       class="hover:text-yellow-400 transition-colors">Home</a></li>
-          <li><a href="#about"      class="hover:text-yellow-400 transition-colors">About Us</a></li>
-          <li><a href="#commercial" class="hover:text-yellow-400 transition-colors">Commercial Services</a></li>
-          <li><a href="#services"   class="hover:text-yellow-400 transition-colors">Residential Services</a></li>
-          <li><a href="#bedbugs"    class="hover:text-yellow-400 transition-colors">Bed Bug Treatment</a></li>
-          <li><a href="#contact"    class="hover:text-yellow-400 transition-colors">Contact Us</a></li>
-          <li><a href="/privacy-policy.html" class="hover:text-yellow-400 transition-colors text-yellow-500">Privacy Policy</a></li>
-          <li><a href="/disclaimer.html" class="hover:text-yellow-400 transition-colors text-yellow-500">Third-Party Disclaimer</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="font-display text-lg mb-4">Our Services</h4>
-        <ul class="font-body text-gray-400 text-sm space-y-2">
-          <li>Commercial Pest Management</li>
-          <li>Rodent Control</li>
-          <li>Ant Extermination</li>
-          <li>Cockroach Elimination</li>
-          <li>Bed Bug Steam Treatment</li>
-          <li>Tick and Mosquito Control</li>
-          <li>Wasp and Bee Removal</li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="font-display text-lg mb-4">Service Areas</h4>
-        <ul class="font-body text-gray-400 text-sm space-y-1">
-          <li>Worcester</li>
-          <li>Shrewsbury</li>
-          <li>Westborough</li>
-          <li>Northborough</li>
-          <li>Marlborough</li>
-          <li>Auburn</li>
-          <li>Holden</li>
-          <li>Millbury &amp; Grafton</li>
-          <li>Leicester &amp; Oxford</li>
-          <li>Paxton &amp; Rutland</li>
-          <li>Spencer &amp; Charlton</li>
-          <li>Clinton &amp; Uxbridge</li>
-        </ul>
-      </div>
-
-    </div>
-    <div class="border-t border-white border-opacity-10 pt-6 text-center">
-      <p class="font-body text-gray-500 text-xs">
-        &copy; 2025 Pest Services MA. All Rights Reserved. &nbsp;|&nbsp; PestControlMA.com &nbsp;|&nbsp; Licensed Pest Control Worcester, MA
-      </p>
-    </div>
-  </div>
-</footer>
-
-<!-- Floating CTA -->
-<a href="#contact" class="fixed bottom-6 left-4 sm:left-6 z-50 btn-gold shadow-[0_4px_20px_rgba(217,119,6,0.5)] flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-body font-bold text-sm sm:text-base border-2 border-white hover:-translate-y-1 transition-all whitespace-nowrap" aria-label="Get Free Inspection">
-  <i class="fa-solid fa-calendar-check"></i> Request Free Quote
-</a>
-
-<!-- Back to Top -->
-<button id="back-to-top" onclick="scrollToTop()"
-  class="show fixed bottom-6 right-6 z-50 bg-pine text-white w-12 h-12 rounded-full shadow-xl items-center justify-center hover:bg-yellow-600 transition-colors" aria-label="Back to top">
-  <i class="fa-solid fa-chevron-up"></i>
-</button>
-
-<script>
-  // Hamburger
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const hamIcon = document.getElementById('ham-icon');
-  hamburger.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('open');
-    hamIcon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-  });
-  function closeMobile() {
-    mobileMenu.classList.remove('open');
-    hamIcon.className = 'fa-solid fa-bars';
-  }
-
-  // Navbar shadow + back to top visibility
-  const navbar = document.getElementById('navbar');
-  const backBtn = document.getElementById('back-to-top');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('nav-scrolled', window.scrollY > 50);
-    backBtn.classList.toggle('show', window.scrollY > 300);
-  });
-
-  // Back to top
-  function scrollToTop() { window.scrollTo({ top:0, behavior:'smooth' }); }
-
-  // Fade in on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  // Form validation
-  async function submitForm() {
-    const name    = document.getElementById('f-name').value.trim();
-    const phone   = document.getElementById('f-phone').value.trim();
-    const email   = document.getElementById('f-email').value.trim();
-    const service = document.getElementById('f-service').value.trim();
-    const message = document.getElementById('f-message').value.trim();
-    
-    const err = document.getElementById('form-error');
-    const suc = document.getElementById('form-success');
-    const btn = document.querySelector('button[onclick="submitForm()"]');
-    
-    err.classList.add('hidden');
-    suc.classList.add('hidden');
-    
-    if (!name) { err.textContent='Please enter your full name.'; err.classList.remove('hidden'); return; }
-    if (!phone) { err.textContent='Please enter your phone number.'; err.classList.remove('hidden'); return; }
-    if (!email || !email.includes('@')) { err.textContent='Please enter a valid email address.'; err.classList.remove('hidden'); return; }
-    
-    if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>Sending...'; }
-
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify({
-          access_key: "8c4de8be-9cd3-4415-9bd9-f300420548d1",
-          name: name,
-          phone: phone,
-          email: email,
-          service: service,
-          message: message,
-          subject: "New Free Inspection Request from Pest Services MA"
-        })
-      });
-
-      const result = await response.json();
-      if (result.success) {
-        suc.classList.remove('hidden');
-        ['f-name','f-phone','f-email','f-message','f-service'].forEach(id => { const el=document.getElementById(id); if(el) el.value=''; });
-      } else {
-        err.textContent = result.message || 'Something went wrong. Please try again.';
-        err.classList.remove('hidden');
+    function scrollToForm() {
+      const formSection = document.getElementById('contact-form');
+      if (formSection) {
+        formSection.scrollIntoView({ behavior: 'smooth' });
       }
-    } catch (error) {
-      err.textContent = 'Network error. Please try again.';
-      err.classList.remove('hidden');
-    } finally {
-      if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-paper-plane mr-2"></i>Book Your Free Inspection Now'; }
     }
-  }
-</script>
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const submitBtn = form.querySelector('.submit-btn');
+      const btnText = form.querySelector('.btn-text');
+      const loadingIcon = form.querySelector('.loading-icon');
+      const successMessage = form.querySelector('.success-message');
+      const errorMessage = form.querySelector('.error-message');
+
+      successMessage.classList.add('hidden');
+      errorMessage.classList.add('hidden');
+
+      submitBtn.disabled = true;
+      btnText.textContent = 'Submitting...';
+      loadingIcon.classList.remove('hidden');
+
+      const formData = new FormData(form);
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+      .then(async (response) => {
+        if (response.status === 200) {
+          submitBtn.disabled = false;
+          btnText.textContent = 'Book Your Free Inspection Now';
+          loadingIcon.classList.add('hidden');
+
+          successMessage.classList.remove('hidden');
+          form.reset();
+
+          setTimeout(() => {
+            successMessage.classList.add('hidden');
+          }, 5000);
+        } else {
+          const json = await response.json();
+          throw new Error(json.message || "Something went wrong.");
+        }
+      })
+      .catch((error) => {
+        submitBtn.disabled = false;
+        btnText.textContent = 'Book Your Free Inspection Now';
+        loadingIcon.classList.add('hidden');
+
+        errorMessage.textContent = error.message || "Error occurred submitting the form.";
+        errorMessage.classList.remove('hidden');
+      });
+    }
+  </script>
 </body>
 </html>

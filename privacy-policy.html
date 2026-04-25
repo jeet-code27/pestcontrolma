@@ -16,26 +16,67 @@
   <meta property="og:site_name" content="Pest Services MA">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="icon" type="image/png" href="/images/pest-services-logo.png" />
 </head>
 <body class="min-h-screen bg-white text-gray-900 font-sans">
 
-  <!-- Header -->
-  <header class="bg-white shadow-sm sticky top-0 z-40">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-      <div class="flex justify-between items-center">
-        <a href="/" class="flex items-center gap-2">
-          <img src="/images/pest-services-logo.png" alt="Pest Services MA Logo" class="h-20 md:h-24 w-auto" />
-        </a>
-        <div class="hidden md:flex items-center gap-6">
-          <a href="/#services" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Residential</a>
-          <a href="/#commercial" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Commercial</a>
-          <a href="/#contact" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
+  <div class="sticky top-0 z-50 flex flex-col w-full shadow-sm">
+    <!-- Top Bar -->
+    <div class="bg-green-800 text-white text-xs sm:text-sm py-2 px-2 sm:px-4 text-center font-semibold tracking-wide w-full">
+      <div class="hidden sm:block">
+        <span class="inline">Serving Worcester and Central Massachusetts</span>
+        <span class="inline">&nbsp;&mdash;&nbsp;</span>
+        <span class="inline font-bold">Emergency Services Available</span>
+      </div>
+      <div class="flex sm:hidden items-center justify-center gap-3 divide-x divide-white/40 text-[11px] sm:text-xs">
+        <a href="/#commercial" class="hover:text-green-200 px-1 py-1">Commercial</a>
+        <a href="/#services" class="hover:text-green-200 pl-3 py-1">Residential</a>
+        <a href="/#bedbugs" class="hover:text-green-200 pl-3 py-1">Bed Bugs</a>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex justify-between items-center">
+          <a href="/" class="flex items-center gap-2">
+            <img src="/images/pest-services-logo.png" alt="Pest Services MA Logo" class="h-16 sm:h-20 w-auto" />
+          </a>
+          <div class="hidden lg:flex items-center gap-6">
+            <a href="/#about" class="font-bold text-gray-700 hover:text-green-600 transition-colors">About</a>
+            <a href="/#commercial" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Commercial</a>
+            <a href="/#services" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Residential</a>
+            <a href="/#bedbugs" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Bed Bugs</a>
+            <a href="/#why-us" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Why Us</a>
+            <a href="/#contact-form" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
+              FREE Inspection
+            </a>
+          </div>
+
+          <!-- Mobile Nav Hamburger -->
+          <div class="lg:hidden flex items-center">
+            <button id="mobile-menu-btn" class="text-gray-700 hover:text-green-600 focus:outline-none p-2">
+              <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Dropdown -->
+      <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full left-0">
+        <div class="px-4 py-3 flex flex-col space-y-3">
+          <a href="/#commercial" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Commercial</a>
+          <a href="/#about" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">About</a>
+          <a href="/#services" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Residential</a>
+          <a href="/#bedbugs" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Bed Bugs</a>
+          <a href="/#why-us" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Why Us</a>
+          <a href="/#contact-form" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors mt-2 text-center inline-block">
             FREE Inspection
           </a>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
+  </div>
 
   <!-- Page Hero -->
   <section class="bg-gradient-to-br from-green-50 to-green-100 py-12 md:py-16">
@@ -277,7 +318,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-3 gap-8 mb-8">
         <div>
-          <a href="/" class="inline-block mb-4 p-2">
+          <a href="/" class="inline-block mb-4 p-2 bg-white rounded-xl shadow-sm">
             <img src="/images/pest-services-logo.png" alt="Pest Services MA Logo" class="h-16 sm:h-20 w-auto" />
           </a>
           <p class="text-gray-400">
@@ -315,7 +356,16 @@
   </footer>
 
   <script>
-    lucide.createIcons();
+    document.addEventListener("DOMContentLoaded", function () {
+      lucide.createIcons();
+      const mobileBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+      }
+    });
   </script>
 </body>
 </html>
