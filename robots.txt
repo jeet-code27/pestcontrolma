@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.pestservicesma.com/sitemap.xml
+
+# LLM Context File
+# https://www.pestservicesma.com/llms.txt
