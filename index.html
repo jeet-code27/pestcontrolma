@@ -23,7 +23,7 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "PestControlService"],
     "name": "Pest Services MA",
     "url": "https://www.pestservicesma.com/",
     "email": "worcesterpestcontrol@gmail.com",
@@ -49,7 +49,16 @@
     ],
     "areaServed": "Worcester County, MA",
     "description": "Professional pest control and bed bug elimination services in Worcester, MA.",
-    "serviceType": ["Pest Control","Bed Bug Treatment","Rodent Control","Commercial Pest Management"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Pest Control Services",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pest Control"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bed Bug Treatment"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Rodent Control"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial Pest Management"}}
+      ]
+    },
     "priceRange": "$$"
   }
   </script>
