@@ -297,7 +297,7 @@
       <div class="flex sm:hidden items-center justify-center gap-3 divide-x divide-white/40 text-[11px] sm:text-xs">
         <a href="/#commercial" class="hover:text-green-200 px-1 py-1">Commercial</a>
         <a href="/#services" class="hover:text-green-200 pl-3 py-1">Residential</a>
-        <a href="/#bedbugs" class="hover:text-green-200 pl-3 py-1">Bed Bugs</a>
+        <a href="/bed-bug-treatment-worcester-ma/" class="hover:text-green-200 pl-3 py-1">Bed Bugs</a>
       </div>
     </div>
 
@@ -312,13 +312,13 @@
             <a href="/#about" class="font-bold text-gray-700 hover:text-green-600 transition-colors">About</a>
             <a href="/#commercial" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Commercial</a>
             <a href="/#services" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Residential</a>
-            <a href="/#bedbugs" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Bed Bugs</a>
+            <a href="/bed-bug-treatment-worcester-ma/" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Bed Bugs</a>
             <a href="/#why-us" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Why Us</a>
-            <a href="/blog/" class="font-bold text-green-600 transition-colors border-b-2 border-green-600">Blog</a>
-            <a href="/#contact-form"
+            <a href="/blog/" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Blog</a>
+            <button onclick="scrollToForm()"
               class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
               FREE Inspection
-            </a>
+            </button>
           </div>
 
           <!-- Mobile Nav Hamburger -->
@@ -336,13 +336,13 @@
           <a href="/#commercial" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Commercial</a>
           <a href="/#about" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">About</a>
           <a href="/#services" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Residential</a>
-          <a href="/#bedbugs" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Bed Bugs</a>
+          <a href="/bed-bug-treatment-worcester-ma/" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Bed Bugs</a>
           <a href="/#why-us" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Why Us</a>
-          <a href="/blog/" class="mobile-link font-bold text-green-600 py-2 border-b border-gray-50">Blog</a>
-          <a href="/#contact-form"
-            class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors mt-2 text-center block">
+          <a href="/blog/" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Blog</a>
+          <button onclick="scrollToForm(); document.getElementById('mobile-menu').classList.add('hidden');"
+            class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors mt-2 text-center">
             FREE Inspection
-          </a>
+          </button>
         </div>
       </div>
     </header>
@@ -357,6 +357,13 @@
           menu.classList.toggle("hidden");
         });
       }
+
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.add('hidden');
+        });
+      });
     });
   </script>
 
@@ -619,9 +626,14 @@
             <li><a href="/#about" class="hover:text-white transition">About Us</a></li>
             <li><a href="/#commercial" class="hover:text-white transition">Commercial Services</a></li>
             <li><a href="/#services" class="hover:text-white transition">Residential Services</a></li>
-            <li><a href="/#bedbugs" class="hover:text-white transition">Bed Bug Treatment</a></li>
+            <li><a href="/bed-bug-treatment-worcester-ma/" class="hover:text-white transition">Bed Bug Treatment</a></li>
+            <li><a href="/cockroach-exterminator-worcester-ma/" class="hover:text-white transition">Cockroach Exterminator</a></li>
+            <li><a href="/rodent-control-worcester-ma/" class="hover:text-white transition">Rodent Control</a></li>
+            <li><a href="/ant-exterminator-worcester-ma/" class="hover:text-white transition">Ant Exterminator</a></li>
             <li><a href="/blog/" class="hover:text-white transition">Blog</a></li>
-            <li><a href="/#contact-form" class="hover:text-white transition">Contact Us</a></li>
+            <li><a href="#contact-form" class="hover:text-white transition">Contact Us</a></li>
+            <li><a href="/privacy-policy.html" class="hover:text-white transition">Privacy Policy</a></li>
+            <li><a href="/disclaimer.html" class="hover:text-white transition">Third-Party Disclaimer</a></li>
           </ul>
         </div>
         
@@ -629,10 +641,10 @@
           <h5 class="text-lg font-bold mb-4">Our Services</h5>
           <ul class="space-y-2 text-gray-400 text-sm">
             <li>Commercial Pest Management</li>
-            <li>Rodent Control</li>
-            <li>Ant Extermination</li>
-            <li>Cockroach Elimination</li>
-            <li>Bed Bug Steam Treatment</li>
+            <li><a href="/rodent-control-worcester-ma/" class="hover:text-white transition">Rodent Control</a></li>
+            <li><a href="/ant-exterminator-worcester-ma/" class="hover:text-white transition">Ant Extermination</a></li>
+            <li><a href="/cockroach-exterminator-worcester-ma/" class="hover:text-white transition">Cockroach Elimination</a></li>
+            <li><a href="/bed-bug-treatment-worcester-ma/" class="hover:text-white transition">Bed Bug Steam Treatment</a></li>
             <li>Tick and Mosquito Control</li>
             <li>Wasp and Bee Removal</li>
           </ul>
@@ -646,7 +658,7 @@
             <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-1"></i> 1285 Main St<br><span class="ml-5">Holden, MA 01520</span></p>
             <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-1"></i> 11 Apex Drive, suite 300<br><span class="ml-5">Marlboro, MA 01752</span></p>
             <p class="mt-4 font-bold text-white">Serving:</p>
-            <p>Worcester, Shrewsbury, Westborough, Marlborough, Auburn, Holden, Millbury, Grafton, and Central MA.</p>
+            <p>Worcester, Shrewsbury, Westborough, Marlborough, Auburn, Holden, Millbury, Grafton, Leominster, Fitchburg, Lowell, and Central MA.</p>
           </address>
         </div>
       </div>

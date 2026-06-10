@@ -86,8 +86,8 @@
         <span class="inline font-bold">Emergency Services Available</span>
       </div>
       <div class="flex sm:hidden items-center justify-center gap-3 divide-x divide-white/40 text-[11px] sm:text-xs">
-        <a href="#commercial" class="hover:text-green-200 px-1 py-1">Commercial</a>
-        <a href="#services" class="hover:text-green-200 pl-3 py-1">Residential</a>
+        <a href="/#commercial" class="hover:text-green-200 px-1 py-1">Commercial</a>
+        <a href="/#services" class="hover:text-green-200 pl-3 py-1">Residential</a>
         <a href="/bed-bug-treatment-worcester-ma/" class="hover:text-green-200 pl-3 py-1">Bed Bugs</a>
       </div>
     </div>
@@ -96,15 +96,15 @@
     <header class="bg-white relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div class="flex justify-between items-center">
-          <a href="#home" class="flex items-center gap-2">
+          <a href="/" class="flex items-center gap-2">
             <img src="/images/pest-services-logo.png" alt="Pest Services MA Logo" class="h-16 sm:h-20 w-auto" />
           </a>
           <div class="hidden lg:flex items-center gap-6">
-            <a href="#about" class="font-bold text-gray-700 hover:text-green-600 transition-colors">About</a>
-            <a href="#commercial" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Commercial</a>
-            <a href="#services" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Residential</a>
+            <a href="/#about" class="font-bold text-gray-700 hover:text-green-600 transition-colors">About</a>
+            <a href="/#commercial" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Commercial</a>
+            <a href="/#services" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Residential</a>
             <a href="/bed-bug-treatment-worcester-ma/" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Bed Bugs</a>
-            <a href="#why-us" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Why Us</a>
+            <a href="/#why-us" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Why Us</a>
             <a href="/blog/" class="font-bold text-gray-700 hover:text-green-600 transition-colors">Blog</a>
             <button onclick="scrollToForm()"
               class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
@@ -124,11 +124,11 @@
       <!-- Mobile Menu Dropdown -->
       <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full left-0">
         <div class="px-4 py-3 flex flex-col space-y-3">
-          <a href="#commercial" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Commercial</a>
-          <a href="#about" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">About</a>
-          <a href="#services" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Residential</a>
+          <a href="/#commercial" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Commercial</a>
+          <a href="/#about" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">About</a>
+          <a href="/#services" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Residential</a>
           <a href="/bed-bug-treatment-worcester-ma/" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Bed Bugs</a>
-          <a href="#why-us" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Why Us</a>
+          <a href="/#why-us" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Why Us</a>
           <a href="/blog/" class="mobile-link font-bold text-gray-700 py-2 border-b border-gray-50">Blog</a>
           <button onclick="scrollToForm(); document.getElementById('mobile-menu').classList.add('hidden');"
             class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors mt-2 text-center">
@@ -441,17 +441,18 @@
         </a>
 
         <!-- Ants -->
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all">
+        <a href="/ant-exterminator-worcester-ma/" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all block group">
           <div class="flex items-start gap-4">
-            <div class="bg-green-50 p-3 rounded-full flex-shrink-0"><i data-lucide="bug" class="w-6 h-6 text-green-600"></i></div>
+            <div class="bg-green-50 p-3 rounded-full flex-shrink-0 group-hover:bg-green-100 transition-colors"><i data-lucide="bug" class="w-6 h-6 text-green-600"></i></div>
             <div>
-              <h4 class="font-bold text-gray-900 text-lg mb-1">Ant Extermination</h4>
+              <h4 class="font-bold text-gray-900 text-lg mb-1 group-hover:text-green-700 transition-colors">Ant Extermination</h4>
               <p class="text-green-700 text-sm font-semibold mb-3">Worcester, Westborough, Marlborough</p>
               <p class="text-gray-600 text-sm mb-2">Ant infestations, especially carpenter ants, are frequent calls. They excavate tunnels through wood structures and potentially compromise the integrity of your home over time. Odorous house ants and pavement ants contaminate food supplies.</p>
               <p class="text-gray-600 text-sm">Our treatment program uses professional baiting systems, residual perimeter treatments, and exterior barrier applications to prevent new colonies from establishing.</p>
+              <p class="text-green-600 text-sm font-bold flex items-center gap-1 mt-3">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></p>
             </div>
           </div>
-        </div>
+        </a>
 
         <!-- Cockroach -->
         <a href="/cockroach-exterminator-worcester-ma/" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all block group">
@@ -793,7 +794,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-4 gap-8 mb-8">
         <div class="md:col-span-1">
-          <a href="#home" class="inline-block mb-4 bg-white p-2 rounded-xl shadow-sm">
+          <a href="/" class="inline-block mb-4 bg-white p-2 rounded-xl shadow-sm">
             <img src="/images/pest-services-logo.png" alt="Pest Services MA Logo" class="h-16 w-auto" />
           </a>
           <p class="text-gray-400 text-sm leading-relaxed mb-4">
@@ -804,13 +805,14 @@
         <div>
           <h5 class="text-lg font-bold mb-4">Quick Links</h5>
           <ul class="space-y-2 text-gray-400 text-sm">
-            <li><a href="#home" class="hover:text-white transition">Home</a></li>
-            <li><a href="#about" class="hover:text-white transition">About Us</a></li>
-            <li><a href="#commercial" class="hover:text-white transition">Commercial Services</a></li>
-            <li><a href="#services" class="hover:text-white transition">Residential Services</a></li>
+            <li><a href="/" class="hover:text-white transition">Home</a></li>
+            <li><a href="/#about" class="hover:text-white transition">About Us</a></li>
+            <li><a href="/#commercial" class="hover:text-white transition">Commercial Services</a></li>
+            <li><a href="/#services" class="hover:text-white transition">Residential Services</a></li>
             <li><a href="/bed-bug-treatment-worcester-ma/" class="hover:text-white transition">Bed Bug Treatment</a></li>
             <li><a href="/cockroach-exterminator-worcester-ma/" class="hover:text-white transition">Cockroach Exterminator</a></li>
             <li><a href="/rodent-control-worcester-ma/" class="hover:text-white transition">Rodent Control</a></li>
+            <li><a href="/ant-exterminator-worcester-ma/" class="hover:text-white transition">Ant Exterminator</a></li>
             <li><a href="/blog/" class="hover:text-white transition">Blog</a></li>
             <li><a href="#contact-form" class="hover:text-white transition">Contact Us</a></li>
             <li><a href="/privacy-policy.html" class="hover:text-white transition">Privacy Policy</a></li>
@@ -823,7 +825,7 @@
           <ul class="space-y-2 text-gray-400 text-sm">
             <li>Commercial Pest Management</li>
             <li><a href="/rodent-control-worcester-ma/" class="hover:text-white transition">Rodent Control</a></li>
-            <li>Ant Extermination</li>
+            <li><a href="/ant-exterminator-worcester-ma/" class="hover:text-white transition">Ant Extermination</a></li>
             <li><a href="/cockroach-exterminator-worcester-ma/" class="hover:text-white transition">Cockroach Elimination</a></li>
             <li><a href="/bed-bug-treatment-worcester-ma/" class="hover:text-white transition">Bed Bug Steam Treatment</a></li>
             <li>Tick and Mosquito Control</li>
